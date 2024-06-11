@@ -1,0 +1,14 @@
+#% if bootstrap_cloudflare.enabled %#
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: ingress-nginx
+  url: https://kubernetes.github.io/ingress-nginx
+  type: helm
+#% endif %#

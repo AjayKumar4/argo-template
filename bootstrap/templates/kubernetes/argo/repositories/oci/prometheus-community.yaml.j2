@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: prometheus-community
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: prometheus-community
+  url: ghcr.io/prometheus-community/charts
+  type: helm
+  enableOCI: "true"

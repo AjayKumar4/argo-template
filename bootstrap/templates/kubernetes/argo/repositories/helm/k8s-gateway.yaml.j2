@@ -1,0 +1,14 @@
+#% if bootstrap_cloudflare.enabled %#
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: k8s-gateway
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: k8s-gateway
+  url: https://ori-edge.github.io/k8s_gateway
+  type: helm
+#% endif %#

@@ -1,0 +1,83 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: home-kubernetes
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destinations:
+    - name: "*"
+      namespace: "*"
+      server: "*"
+  sourceRepos:
+    - "*"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: github-deploy-key
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/AjayKumar4/home-lab.git
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cluster
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: home-kubernetes
+  source:
+    repoURL: "https://github.com/AjayKumar4/home-lab.git"
+    path: kubernetes/argo
+    targetRevision: "home-lab"
+    directory:
+      recurse: true
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /spec/syncPolicy
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: home-kubernetes
+  source:
+    path: kubernetes/bootstrap/argo
+    repoURL: "https://github.com/AjayKumar4/home-lab.git"
+    targetRevision: "home-lab"
+    helm:
+      valueFiles:
+        - kubernetes/bootstrap/argo/values.yaml
+        - 'secrets+age-import-kubernetes://helm-secrets-private-keys#key.txt?kubernetes/bootstrap/argo/values.sops.yaml'
