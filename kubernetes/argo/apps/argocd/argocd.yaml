@@ -12,7 +12,6 @@
 #     targetRevision: "master"
 #     helm:
 #       valueFiles:
-#         - secrets://../../../bootstrap/argo/values.sops.yaml
 #         - ../../../bootstrap/argo/values.yaml
 #   destination:
 #     name: in-cluster
