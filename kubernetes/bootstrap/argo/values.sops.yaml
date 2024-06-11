@@ -1,26 +1,26 @@
 argo-cd:
     global:
-        domain: ENC[AES256_GCM,data:hlLgSrt+wj88og/8zayMuTAd0g==,iv:mNLV3yZjtkEx9GwPiNnoE/kr8DaFupRPGujjGfPD9eY=,tag:if+v5qqbsrLdBFve9doSug==,type:str]
+        domain: ENC[AES256_GCM,data:qM2RHYPh4MTPh6Hjbbqf1t265A==,iv:h2k3i1CmE+26Dk4UhIfbFu+2IdOVf+ePxV3TI+I9v4I=,tag:kBwZgKfR8mjyzvL/FUPBFA==,type:str]
     configs:
         secret:
-            argocdServerAdminPassword: ENC[AES256_GCM,data:SbN86k2j1S9UB1C3zHyFNak/368iQgH1YdZUXaF5SvMkN1thDJOC4RN8ZFzv7W6/HEAVAKkq4WylY8Ws,iv:53SgA2RXYy1PtqYdOjXaUlu5GY+4c2T1pwr3HeaT7XE=,tag:Z0Ovw0f7VFZP6spMGcl3Ug==,type:str]
-            githubSecret: ENC[AES256_GCM,data:ZT01JWI7Lue9fai1bqr8ivz2mXg2xm115mBEtS6YS8g=,iv:OlGVCQMgcFokHDIq9aD7VShR6wa9Cjan1Pnnu7Ziwm0=,tag:xnqc5kEjWd7JXChLpNRH0A==,type:str]
+            argocdServerAdminPassword: ENC[AES256_GCM,data:n8FcniJZG3muPZwvH8+PJ2yIr00y3bvlpLHCMtuhrOzysnOq8d8FVIODAZgbN8mGbaLrgz1OVaOJpze9,iv:n0nF13qgSAaLP6yDPpRWrdC8a3KdOe9WFHBUibW0Ids=,tag:JaIyBb6JrHle/WPp2l+70Q==,type:str]
+            githubSecret: ENC[AES256_GCM,data:we44v7sloxogKsYm9+UUMwASE0Bcl4xWec74bsUNrfo=,iv:FEFMnqujVCKb+voA8NXwYj1WNWbyXNzCZpXOg6mynto=,tag:Nc7sz7wqkWXOZOvTXiuwwA==,type:str]
     server:
-        allowAnyNamespace: ENC[AES256_GCM,data:oAgTXg==,iv:6SvwG1C+eHIrEB4iSJiRsqaGt/OeRfWXAhNgFFTRiqM=,tag:qR2ijBEthwT9wi6yzBQVjQ==,type:bool]
+        allowAnyNamespace: ENC[AES256_GCM,data:AQqlhA==,iv:gWcZChj3pNht906ATZU4aP8blopd7a89RbmySVIgNYk=,tag:QObes44CkyHfxorNsQQcMA==,type:bool]
         certificate:
-            enabled: ENC[AES256_GCM,data:UV3VFg==,iv:fqveg8/OKy6tQTTrlUPKOO3haj8IUZu9EOT0T0LNLSE=,tag:Hm7sm4+Rr+nvw1uS88VBkA==,type:bool]
-            secretName: ENC[AES256_GCM,data:U2dnkm0Q+ZFSWdCfRsWTkI8=,iv:xN5efa3kIH51wTwCrmPP95CMpFmK/4GonX7IdwdCv/c=,tag:0cHeuunT2niwYpDiSRapbQ==,type:str]
-            domain: ENC[AES256_GCM,data:bYiIrGFoY2I8wuA8o92J1/Ribw==,iv:zgAXDTsDzgCebgSXK3OTeG6Dqz4bYnuaWZIqWcIZ4Rc=,tag:BsK1Ww7rA2ZGfKBKHlmBVw==,type:str]
+            enabled: ENC[AES256_GCM,data:TO4ZSg==,iv:cI55YcrfI4I/LKDJxw8irRurbcv5ChmQXBuCw+H6EEI=,tag:lDlQrngMQm9CHfFCx5fmww==,type:bool]
+            secretName: ENC[AES256_GCM,data:wZQghe3lt+bSbW3ya6Lv+OI=,iv:NV53UvWLy1B+jrE2zUuMXNRyg/IJIWIKHdja/7CPrfs=,tag:vhuIXK9DhJHOr5KOxyCkIg==,type:str]
+            domain: ENC[AES256_GCM,data:XfUjEYhicSmwGRodVbxSfDD4pg==,iv:5KPgIhLnyO2xRZ1x3FG/7FWxjmMUrbCb7eONo/4WpAg=,tag:wJib9oXwGTML6eQggGl1FQ==,type:str]
             issuer:
-                group: ENC[AES256_GCM,data:KGTgJSn3ipagefFsbeH6,iv:d/UYDzDp/IzxIiBdoKcsgzFzGQ3PIPqdKMz6kPIy7KM=,tag:+ImcPlZ8ZRI0Yx6j1VOMEA==,type:str]
-                kind: ENC[AES256_GCM,data:+zSOymhzbzcxQdYS/A==,iv:2aZYqyKYBGbczc2KbNrebl/sW7w5NPB8G6ufYkElwsw=,tag:KCtDTF6UnXJB1NEA2LfcKw==,type:str]
-                name: ENC[AES256_GCM,data:Vn1E7Io1OmLbfxnftiX6umqVGtr2Tg==,iv:7DFCPldW/+3kES4wY83oej06Y+ndExW7x419tdacFYg=,tag:BjF0kmsGpnkRKVHYsGP2CA==,type:str]
+                group: ENC[AES256_GCM,data:aSaXxoBm/H9PLR9/+L0U,iv:cEX4ftSoOq7wR6l6xDDAORDMwIS/bm+Hmt44VDLecog=,tag:0YzSr5BKka4ddTLkQ7LHgQ==,type:str]
+                kind: ENC[AES256_GCM,data:KqVwD8eMmVEODtgA+A==,iv:PrbUzjAqzfAsU1xSCBqq+2+qX4bJIkZjOx9hpcYLVrs=,tag:I5AoyaTvP3B2dlVuwaIhqg==,type:str]
+                name: ENC[AES256_GCM,data:mYqP+32ZkTXwZET6z27253FGOMxFoA==,iv:rRhDP+DeHhCRT4OWCxgeb6MZES30vVRIYSie8QZC6BI=,tag:pSoBbD4r66aIgYkEcrCrXw==,type:str]
         ingress:
-            enabled: ENC[AES256_GCM,data:kCls1Q==,iv:gQZZge7ZRfzovrzzVzdS4xdvDkvN0AEDUXR+IroPmRY=,tag:v0+kug5p2Sxwv01AU7xpeA==,type:bool]
-            ingressClassName: ENC[AES256_GCM,data:Rq8+JZnJXQI=,iv:ZgvpfiaVKfd05K7nAxLNeOge8MhCT+Sa7iak3UoBcic=,tag:Mni2GVv5TLtglhkmVhgvRA==,type:str]
+            enabled: ENC[AES256_GCM,data:5yeFZw==,iv:qMbSNGVGEsnykcOq+lqs11cnXoVdCmbpe1r1YDYBKcY=,tag:CjZfds472K/GyOjmfHdKQQ==,type:bool]
+            ingressClassName: ENC[AES256_GCM,data:j28zRh2za+8=,iv:LZuyeLF7rAkhi372UuiXeeEohcS4smP5UmXlbg/x0t0=,tag:uTzcF0xvI2M0XECsRCIXhA==,type:str]
             annotations:
-                external-dns.alpha.kubernetes.io/target: ENC[AES256_GCM,data:WBYLIIUmlns86x2lVJdhY31rl775,iv:3iDwhVJpDfh/KyAO04yq5nhsjrGDdBSTjQjJlOHdX7o=,tag:4aoLcw4Vj7ETU3YyiW117A==,type:str]
-            hostname: ENC[AES256_GCM,data:ln5qXyUauJuPgEFA7fsW+aDvqQ==,iv:C4CaSh9OgELtWmDmux0/JhilUyWimuySF6QjeUMLSIY=,tag:ZuYlqowJ9QVImf5Gg8u8Mg==,type:str]
+                external-dns.alpha.kubernetes.io/target: ENC[AES256_GCM,data:jJFTooPZV3HxfrSLln1HqveMajLP,iv:+b3tQpiq6LGgN6/vjAEeoXNJpJrhhWLVsQHfnXwUDz4=,tag:tSYCacEvt58NX64STYPJ7g==,type:str]
+            hostname: ENC[AES256_GCM,data:p8Ooj2gtzndFyhsujyfzcJsnSQ==,iv:TmDNx/sgHOVJzoAzcLaiuq45kNZNlOH30KAxfKxf7Ss=,tag:kvZWTKsQvosXcBWNtulMsQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -30,14 +30,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBoK3pzZnFUK21DYWNyb3Ry
-            cUV6cWJpUUJ1Y3FBWXBJdGFsc3F0NG1pL2k4CkxnT3ZBU2lCMFdWWFhZV3FLTzdF
-            akdqSE9CbjlzTjZ3Qzgvcm96RGNKM1kKLS0tIC8yUDM5MVRQL1BWSHpZcnNZcGFQ
-            bUM2V2F2MTVwQjFoV1BkbC9HV3pQZlUKNEkcvkN6aHWVm5yr8n+qsAKXSFGRDQ10
-            wSpskD7bk3et2ZkFcZBvV5gL2/j9qeJqmnCCDwjOO+lgJzcnWMEtqw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAxUC9Tc01YUUhrTHZYYTNE
+            T2ZHcFdyUGh4Yk9qUTFJbElGcVlFME9LN21FCjZiV1VtOWtFTDJvY2hGQ0V1dGZi
+            TzNSa0VuNUZBeXUyLzY5VWdUQnpRWkUKLS0tIEIrWnhFK1dmR2N6VlFOOFpxUFVI
+            Si9lZjBWZFdnYTJ1ck00RDdtZmdsb1kK+u+F4afoDvBKSizd+vQL/8nIVoU+iShn
+            0BrRWj6uqvnMB2KTiVjVppr1mTn9O5C8IoPmL3CHUzwrcFocQbpecQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-11T10:28:09Z"
-    mac: ENC[AES256_GCM,data:RFvVmBGUWKpoBBVJjHlN6WSInzoAS2HHqCIpJU0rgUicaE7PLu+s65U8mB4Uc58FI/gNRpUvcXu5EHkwbdBwPnPR/UtJoM56wgFp5YdyIJ7b2VjH3L8wphtQzzn3zSRrx365pB7zfGmFD7GW0tWqJHsT2x8ndYLr9SdjqQRHvFU=,iv:fz/7Tle9UH0DMLruxFGQGoLaClAiCpoRPKz1fgdX5pI=,tag:liCKAtWpKa+f18G2jHcGcg==,type:str]
+    lastmodified: "2024-06-11T10:52:47Z"
+    mac: ENC[AES256_GCM,data:hLk5LNuecGIzFNrozUrefQCNXAdhDoqTC4sIgsKMLgPgt0bc3DAVjlN/qaBKhflXoQl735HWZJsYywmJ6TigCs4ZnUAp9vODQsBUANtS6QQPU9UHPOEYc1A/1jJtOGK4RTVvqPhfUga0F3eY5Yod5wxHZQm37sBk9jJFviExd94=,iv:CQHUO+9QwHc4iGaZRUZUM+RvYfBtcjbsGCccPwtOp9o=,tag:n+kYO8Vcs+VwUFBb+Dt5sA==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.8.1
