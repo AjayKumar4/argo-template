@@ -76,4 +76,3 @@ spec:
     helm:
       valueFiles:
         - kubernetes/bootstrap/argo/values.yaml
-        - secrets://kubernetes/bootstrap/argo/values.sops.yaml

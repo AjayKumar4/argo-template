@@ -49,7 +49,6 @@ argo-cd:
     serviceAccount:
       create: true
       name: argocd-repo-server
-  
     rbac:
       - apiGroups:
           - ""
@@ -72,7 +71,7 @@ argo-cd:
         value: sops
       # https://github.com/jkroepke/helm-secrets/wiki/Security-in-shared-environments
       - name: HELM_SECRETS_VALUES_ALLOW_SYMLINKS
-        value: "false"
+        value: "true"
       - name: HELM_SECRETS_VALUES_ALLOW_ABSOLUTE_PATH
         value: "true"
       - name: HELM_SECRETS_VALUES_ALLOW_PATH_TRAVERSAL
