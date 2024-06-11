@@ -16,4 +16,4 @@ spec:
     helm:
       valueFiles:
         - ../../bootstrap/argo/values.yaml
-        - secrets://../../bootstrap/argo/values.yaml
+        - secrets://../../bootstrap/argo/values.sops.yaml

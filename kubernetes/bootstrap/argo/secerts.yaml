@@ -1,43 +1,23 @@
 argo-cd:
-    global:
-        domain: ENC[AES256_GCM,data:S4m1AyG8oTtZaKPQtuWAdEyZxQ==,iv:ioPGaAkIeJuilMF8APO5BjkRrdhA2freg8t2nYKN2tI=,tag:X78S4WwFDc+v6c7Upb7k3w==,type:str]
-    configs:
-        secret:
-            argocdServerAdminPassword: ENC[AES256_GCM,data:MqO79jTBvurLvXTgFepbVreV4LNsxGJSgA4NhrSj0u8dIOg4tuxw0y3XRhqfXL5/RJOV0Wpb39a1D0qb,iv:f/dANp19De5DzGoPirphYu3fqeQcfOxuc86wTH+6gFI=,tag:RfPVxu+3wfCTW+t1qBQ1ww==,type:str]
-            githubSecret: ENC[AES256_GCM,data:2zx5isZvgzkZnDlINitffRvARkeyikI8rpPnFbXHQtI=,iv:B7pAATxLGW9IEvPDYD2CNb/gaHx6REojgofHBNNGx1c=,tag:hHGsLOtk+SCB9gbwI/3TyQ==,type:str]
-    server:
-        allowAnyNamespace: ENC[AES256_GCM,data:0hYWHg==,iv:q9VceJYw5q4HEBnWgjvCjbVskbQkjwC0Sq0kFzbRMOg=,tag:Td1KPoZHmnzgsm0yuTGYfg==,type:bool]
-        certificate:
-            enabled: ENC[AES256_GCM,data:heaOnw==,iv:6tzqjtKL9pUrq+G3FkfU8xP9r9B6aTX8UPjnq5jzae0=,tag:GvMXpIdt1b3liWG1TH9jGQ==,type:bool]
-            secretName: ENC[AES256_GCM,data:dzaU2ALPgsga2O30xz3mlsQ=,iv:Ojj8d2EqJ+agRjVh9/N6g7Vlji8A/aMbjAHTbm0SxIg=,tag:iCXxXNz6k+VYvnvvrlhpGQ==,type:str]
-            domain: ENC[AES256_GCM,data:cCJ1yrRZDJ7vJZpGrnBrwKtOwA==,iv:ST4A/T0UTxbeDtnZptOK0WqfEuDET98wD293Px5n7Hs=,tag:wMvkDaAk35YU3Q+WBtkhvg==,type:str]
-            issuer:
-                group: ENC[AES256_GCM,data:r8V6QVIg+/OiTk4U9ks9,iv:ROlCVZsW+8IomlPVw8YgmqO0yUM9XSQiJStism9fAO4=,tag:/WzVNjC4qPeEyYSMJUxTYA==,type:str]
-                kind: ENC[AES256_GCM,data:3kgN1qJAdsHMbwLfGw==,iv:nDb+1JNxEuXtu9wX7qvOtJwMyqOe6JXusfu8KlfQ0bY=,tag:1723kTmN/mdfJi60rNQXSg==,type:str]
-                name: ENC[AES256_GCM,data:rc5+o2nR/6QBzuX0mWMMZjNx0zxftg==,iv:vg88T4zjgblDRqYH8pyywwp5GUCiLRzy4fXyu7Y7dP4=,tag:ZCftIfxcmTUPTF+iWgEZEg==,type:str]
-        ingress:
-            enabled: ENC[AES256_GCM,data:IhEhKg==,iv:9dAiyVOxyTYVpwGmSfFllxdMdNLctoqCQeaJgZVUpBY=,tag:sEFT1rYsOaINGvjywpI8ww==,type:bool]
-            ingressClassName: ENC[AES256_GCM,data:1cyue2sfm8U=,iv:tDOV+svuF/+kEhIcu/WOAHbc83SFHcs8T0aK6EkKRzo=,tag:L7RyqbeTAwwwIE+8MNJyHg==,type:str]
-            annotations:
-                external-dns.alpha.kubernetes.io/target: ENC[AES256_GCM,data:UM7BPrBdyJoQF0kuX6Px3FHupTDS,iv:crlIpi1FIoOcbire7GF4S3O+eeeXjNf6a05RXhRk7e0=,tag:WnRlxoWGhn2tmS3nj6P9gA==,type:str]
-            hostname: ENC[AES256_GCM,data:zxidfFjFBeRO1TKOK8JRvySfcw==,iv:qNV4v0GlgZiPuHzsYaqHOdOWO+BV3FYIlm2MCe6boqU=,tag:p0Er2r9XwmzZ8Z0KUDy/gg==,type:str]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzVCtZOThvaitUZW91cmRn
-            ZVc0akNkekxJZGpPdXdqd2lFRUNDTHNPTGk0CnpMdEtkMGxvWW1kblRwc3I2eXRl
-            dVVuY1ZJN1FlbDdoMG1IZmtJSUJzUUEKLS0tIGJFU0paM3h1L1pyMmZsdzJZMjZQ
-            d1lQUHhhSC9tWXh2QkppS3lhdWhRamcKuk1RigPB3ledFPvFZmWgzErABqaEaf4t
-            4F2wj6SF724kVzg5bWXAv8nNKAMVsfpchmS2h99dp3tyEwnifRUS9Q==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-11T12:18:25Z"
-    mac: ENC[AES256_GCM,data:3kfA0gEXlKDKBd7syEY0D+1GZHRi6271ioUyK3kyg3s39E+kKcsXrncNT77PXuzta/gZgNhIJz7Whi6+IkdpKEb8wyv2XZK5kxLAGldb9C4peTNso3q/gUGhFZowbMu3G5QMjqCR07bDB605NJfkJcOhL6nac5VFBnF85GMsGRo=,iv:0d5uPXUQAzBaOkVUlRxlbZTLKXxHofNNpsou5uQGZjY=,tag:ydELDp3mlYNTZSMFHZk36Q==,type:str]
-    pgp: []
-    unencrypted_suffix: _unencrypted
-    version: 3.8.1
+  global:
+    domain: "argocd.ajaykumar.ie"
+  configs:
+    secret:
+      argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
+      githubSecret: bd77b8ded03b9fdc259013f221d5c244
+  server:
+    allowAnyNamespace: true
+    certificate:
+      enabled: true
+      secretName: argocd-server-tls
+      domain: "argocd.ajaykumar.ie"
+      issuer:
+        group: cert-manager.io
+        kind: ClusterIssuer
+        name: letsencrypt-production
+    ingress:
+      enabled: true
+      ingressClassName: external
+      annotations:
+        external-dns.alpha.kubernetes.io/target: "external.ajaykumar.ie"
+      hostname: "argocd.ajaykumar.ie"
