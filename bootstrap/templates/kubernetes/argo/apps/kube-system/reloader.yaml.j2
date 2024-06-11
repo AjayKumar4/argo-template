@@ -2,19 +2,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: reloader
   namespace: argocd
 spec:
   project: home-kubernetes
   source:
+    path: kubernetes/apps/kube-system/reloader
     repoURL: "#{ bootstrap_github_address }#"
-    path: kubernetes/argo/apps
-    targetRevision: "#{ bootstrap_github_branch }#"
+    targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
     directory:
       recurse: true
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: kube-system
   syncPolicy:
     automated:
       prune: true
@@ -28,4 +28,3 @@ spec:
       kind: Application
       jsonPointers:
         - /spec/syncPolicy
-

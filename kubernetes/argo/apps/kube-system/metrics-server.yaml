@@ -2,19 +2,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: metrics-server
   namespace: argocd
 spec:
   project: home-kubernetes
   source:
-    repoURL: "#{ bootstrap_github_address }#"
-    path: kubernetes/argo/apps
-    targetRevision: "#{ bootstrap_github_branch }#"
+    path: kubernetes/apps/kube-system/metrics-server
+    repoURL: "https://github.com/AjayKumar4/argo-template.git"
+    targetRevision: "master"
     directory:
       recurse: true
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: kube-system
   syncPolicy:
     automated:
       prune: true
@@ -28,4 +28,3 @@ spec:
       kind: Application
       jsonPointers:
         - /spec/syncPolicy
-

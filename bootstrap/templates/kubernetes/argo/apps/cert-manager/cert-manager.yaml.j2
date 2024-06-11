@@ -2,19 +2,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps
+  name: cert-manager
   namespace: argocd
 spec:
   project: home-kubernetes
   source:
+    path: kubernetes/apps/cert-manager/cert-manager
     repoURL: "#{ bootstrap_github_address }#"
-    path: kubernetes/argo/apps
-    targetRevision: "#{ bootstrap_github_branch }#"
+    targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
     directory:
       recurse: true
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true
@@ -28,4 +28,3 @@ spec:
       kind: Application
       jsonPointers:
         - /spec/syncPolicy
-
