@@ -80,4 +80,4 @@ spec:
     helm:
       valueFiles:
         - kubernetes/bootstrap/argo/values.yaml
-        - 'secrets+age-import-kubernetes://helm-secrets-private-keys#key.txt?kubernetes/bootstrap/argo/values.sops.yaml'
+        - 'secrets://kubernetes/bootstrap/argo/values.sops.yaml'
