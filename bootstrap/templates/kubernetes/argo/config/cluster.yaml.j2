@@ -4,8 +4,6 @@ kind: AppProject
 metadata:
   name: home-kubernetes
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   destinations:
     - name: "*"
@@ -41,8 +39,6 @@ kind: Application
 metadata:
   name: cluster
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: home-kubernetes
   source:
