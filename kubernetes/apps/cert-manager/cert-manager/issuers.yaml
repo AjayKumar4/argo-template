@@ -5,7 +5,11 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: "${SECRET_ACME_EMAIL}"
+    email:
+      valueFrom:
+        secretKeyRef:
+          name: cert-manager-secret
+          key: email
     privateKeySecretRef:
       name: letsencrypt-production
     solvers:
@@ -16,7 +20,10 @@ spec:
               key: api-token
         selector:
           dnsZones:
-            - "${SECRET_DOMAIN}"
+            - valueFrom:
+                secretKeyRef:
+                  name: cert-manager-secret
+                  key: domain
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -25,7 +32,11 @@ metadata:
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: "${SECRET_ACME_EMAIL}"
+    email:
+      valueFrom:
+        secretKeyRef:
+          name: cert-manager-secret
+          key: email
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
@@ -36,4 +47,7 @@ spec:
               key: api-token
         selector:
           dnsZones:
-            - "${SECRET_DOMAIN}"
+            - valueFrom:
+                secretKeyRef:
+                  name: cert-manager-secret
+                  key: domain

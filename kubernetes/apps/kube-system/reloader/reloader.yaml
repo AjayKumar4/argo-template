@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-system
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    server: https://kubernetes.default.svc
+  project: home-kubernetes
+  source:
+    chart: reloader
+    repoURL: https://stakater.github.io/stakater-charts
+    targetRevision: 1.0.105
+    helm:
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+

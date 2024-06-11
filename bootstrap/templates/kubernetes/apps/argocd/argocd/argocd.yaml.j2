@@ -15,5 +15,5 @@ spec:
     targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
     helm:
       valueFiles:
-        - ../../bootstrap/argo/values.yaml
-        - secrets://../../bootstrap/argo/values.sops.yaml
+        - ../../../bootstrap/argo/values.yaml
+        - secrets://../../../bootstrap/argo/values.sops.yaml
