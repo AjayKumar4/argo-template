@@ -81,4 +81,5 @@ spec:
     targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
     helm:
       valueFiles:
-        - kubernetes/bootstrap/argo/values.yaml
+        - ../../bootstrap/argo/values.yaml
+        - secrets://../../bootstrap/argo/values.sops.yaml
