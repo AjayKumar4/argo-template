@@ -9,9 +9,9 @@ metadata:
 spec:
   project: home-kubernetes
   source:
-    repoURL: "https://github.com/AjayKumar4/home-lab.git"
+    repoURL: "https://github.com/AjayKumar4/argo-template.git"
     path: kubernetes/apps
-    targetRevision: "home-lab"
+    targetRevision: "master"
     directory:
       recurse: true
   destination:

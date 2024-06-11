@@ -27,7 +27,7 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   type: git
-  url: https://github.com/AjayKumar4/home-lab.git
+  url: https://github.com/AjayKumar4/argo-template.git
 
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -40,9 +40,9 @@ metadata:
 spec:
   project: home-kubernetes
   source:
-    repoURL: "https://github.com/AjayKumar4/home-lab.git"
+    repoURL: "https://github.com/AjayKumar4/argo-template.git"
     path: kubernetes/argo
-    targetRevision: "home-lab"
+    targetRevision: "master"
     directory:
       recurse: true
   destination:
@@ -75,8 +75,8 @@ spec:
   project: home-kubernetes
   source:
     path: kubernetes/bootstrap/argo
-    repoURL: "https://github.com/AjayKumar4/home-lab.git"
-    targetRevision: "home-lab"
+    repoURL: "https://github.com/AjayKumar4/argo-template.git"
+    targetRevision: "master"
     helm:
       valueFiles:
         - kubernetes/bootstrap/argo/values.yaml
