@@ -15,7 +15,8 @@ tasks:
       - helm dependency build {{.KUBERNETES_DIR}}/bootstrap/argo
       - helm upgrade --install argocd {{.KUBERNETES_DIR}}/bootstrap/argo --namespace argocd --create-namespace
       - kubectl -n argocd create secret generic helm-secrets-private-keys --from-file=key.txt={{.AGE_FILE}}
-      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo/
+      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo/projects
+      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo
     preconditions:
       - msg: Missing kubeconfig
         sh: test -f {{.KUBECONFIG_FILE}}
