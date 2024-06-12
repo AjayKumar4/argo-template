@@ -8,7 +8,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: "{{ .Values.email }}"
+    email: {{ .Values.email }}
     privateKeySecretRef:
       name: letsencrypt-production
     solvers:
@@ -19,7 +19,7 @@ spec:
               key: api-token
         selector:
           dnsZones:
-            - "{{ .Values.domain }}"
+            - {{ .Values.domain }}
 #% else %#
 ---
 apiVersion: cert-manager.io/v1
@@ -30,7 +30,7 @@ metadata:
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: "{{ .Values.email }}"
+    email: {{ .Values.email }}
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
@@ -41,5 +41,5 @@ spec:
               key: api-token
         selector:
           dnsZones:
-            - "{{ .Values.domain }}"
+            - {{ .Values.domain }}
 #% endif %#

@@ -9,4 +9,4 @@ spec:
     - dnsName: {{ .Values.ingress_domain }}
       recordType: CNAME
       targets:
-        - "{{ .Values.tunnel_id }}.cfargotunnel.com"
+        - {{ .Values.tunnel_id }}.cfargotunnel.com
