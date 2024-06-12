@@ -1,0 +1,28 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudflared
+  namespace: argocd
+spec:
+  project: home-kubernetes
+  source:
+    path: kubernetes/apps/network/cloudflared
+    repoURL: "#{ bootstrap_github_address }#"
+    targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
+  destination:
+    name: in-cluster
+    namespace: network
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /spec/syncPolicy
