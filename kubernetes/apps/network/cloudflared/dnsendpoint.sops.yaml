@@ -2,6 +2,7 @@ apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
     name: cloudflared
+    namespace: network
 spec:
     endpoints:
         - dnsName: external.ajaykumar.ie
@@ -17,14 +18,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBLajJPRHZPS2RCN0w4UkNP
-            STJOMlY0ektUaCtCeHBMUjNsdTdTaGhCcGtvCkNXbEp0ZDZjRGpGeGJHYlQ5MXVv
-            RGVtUGJ3eENyb1N5M3UvRytLY3l5QUkKLS0tIFVrWXJrRVkyeVZFZkdnTldQb3gy
-            bFN3eFRyY3dZdk80SFo5Wk5yVytzL0kKj9oy8zsa1CiRe2WxooXlq+zp/f+reurS
-            0XVeFulxwz2VKgzR7JHCNk3JFSUFbR3orpKScDHWWyFhRPBKpnMSWw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2YkprUmU5K0o5aEtsdEtR
+            aW5idEFWMVVkYlpncllSN2VLMGRLRXNGK21vCkZrbHB6NVZnc1FaOFhKczB1MzBo
+            ci9YWURBU3NTMVJ0cGtXWFAvT0RqRGsKLS0tIGNVdmFGRlFlVWtVOWZXRFZjUFc1
+            U1RrMy94Q1lBdXB3TWFKYWlpSDFMSlkKisRBYNP+YrRQsEPIj2dCouWs5JLffhhv
+            tTeHiv7QisoAhan3pZatPp7C5Rsv9fNF5GvCPhud+q3GvxPsrkQknA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-12T19:57:56Z"
-    mac: ENC[AES256_GCM,data:hJHzRaJYj7giJhnIgzao3BeLLxna55ajBPId7VM0e64hI7EA8Pr5SSyGxwArTxtN36tgLtXgRScEdZdZ8WdEV/CDYGmZ0X6yMLpLaikWoSnCUk0RHqW58WxzRUNEeroiQR8lXejotDCY2YTHn4GTgbeztagnJ9oUGtKzipTmuUo=,iv:iGJWzO/JgHaL8slm8rJtmZ2kwWVKkIeR4BtmzeRauk0=,tag:quYoLpCIFnHld24Om/p3bA==,type:str]
+    lastmodified: "2024-06-12T20:07:29Z"
+    mac: ENC[AES256_GCM,data:Q+3nF4PjUgOJSJwL79iUVor1H3TscRuPwzI/DbA+TIBEMF52Wafx6gaWVy5N9ZF3XBJ9p5Ldz3KMLu7OPgyNpW2Xgv3TFN8njJk4nlGf8ftDod8cZNOkBpbcD4ZX7gqQ2b3E9ft/JHdXXPpucsUTP9PgNjPlcsRsFSGlBwQrXHQ=,iv:BaswukNkwoaYL5MMsz/kFoZqwdPDet0yg75oBi3f2zg=,tag:EIGZ+uwGxz0s7tJGrJpiEQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1
