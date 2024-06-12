@@ -1,18 +1,4 @@
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: "{{ .Values.domain_id }}-staging"
-  namespace: cert-manager
-spec:
-  secretName: "{{ .Values.domain_id }}-staging-tls"
-  issuerRef:
-    name: letsencrypt-staging
-    kind: ClusterIssuer
-  commonName: "{{ .Values.domain }}"
-  dnsNames:
-    - "{{ .Values.domain }}"
-    - "*.{{ .Values.domain }}"
+#% if bootstrap_cloudflare.acme.production %#
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -28,3 +14,20 @@ spec:
   dnsNames:
     - "{{ .Values.domain }}"
     - "*.{{ .Values.domain }}"
+#% else %#
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "{{ .Values.domain_id }}-staging"
+  namespace: cert-manager
+spec:
+  secretName: "{{ .Values.domain_id }}-staging-tls"
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: "{{ .Values.domain }}"
+  dnsNames:
+    - "{{ .Values.domain }}"
+    - "*.{{ .Values.domain }}"
+#% endif %#

@@ -6,7 +6,7 @@ metadata:
   namespace: network
 spec:
   endpoints:
-    - dnsName: "external.#{ bootstrap_cloudflare.domain }#"
+    - dnsName: {{ .Values.ingress_domain }}
       recordType: CNAME
       targets:
-        - "#{ bootstrap_cloudflare.domain.tunnel.id }#.cfargotunnel.com"
+        - "{{ .Values.tunnel_id }}.cfargotunnel.com"

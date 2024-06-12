@@ -8,12 +8,12 @@ data:
   config.yaml: |
     ---
     originRequest:
-      originServerName: "external.#{ bootstrap_cloudflare.domain }#"
+      originServerName: {{ .Values.ingress_domain }}
 
     ingress:
-      - hostname: "#{ bootstrap_cloudflare.domain }#"
+      - hostname: {{ .Values.domain }}
         service: https://ingress-nginx-external-controller.network.svc.cluster.local:443
-      - hostname: "*.#{ bootstrap_cloudflare.domain }#"
+      - hostname: "*.{{ .Values.domain }}"
         service: https://ingress-nginx-external-controller.network.svc.cluster.local:443
       - service: http_status:404
 

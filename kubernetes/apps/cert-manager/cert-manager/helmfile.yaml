@@ -4,7 +4,6 @@ helmDefaults:
   waitForJobs: true
   timeout: 600
   force: true
-  reuseValues: true
 
 repositories:
   - name: jetstack
@@ -22,3 +21,11 @@ releases:
     version: 1.15.0
     values:
       - values.yaml
+  - name: certificates
+    namespace: cert-manager
+    chart: .
+    version: 1.0.0
+    secrets:
+      - values.sops.yaml
+    needs:
+      - cert-manager/cert-manager
