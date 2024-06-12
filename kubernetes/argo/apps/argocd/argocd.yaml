@@ -7,13 +7,9 @@ metadata:
 spec:
   project: home-kubernetes
   source:
-    path: kubernetes/bootstrap/argo
+    path: kubernetes/apps/argocd/argocd
     repoURL: "https://github.com/AjayKumar4/argo-template.git"
     targetRevision: "master"
-    helm:
-      valueFiles:
-        - ../../../bootstrap/argo/values.yaml
-        - secrets://../../../bootstrap/argo/values.sops.yaml
   destination:
     name: in-cluster
     namespace: argocd
