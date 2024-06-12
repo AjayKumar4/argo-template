@@ -3,7 +3,6 @@ helmDefaults:
   wait: true
   waitForJobs: true
   timeout: 600
-  recreatePods: true
   force: true
 
 repositories:
@@ -57,3 +56,7 @@ releases:
       - kube-system/cilium
       - kube-system/coredns
       - kube-system/kubelet-csr-approver
+helmfiles:
+  - path: ../apps/argocd/argocd/helmfile.yaml
+    needs:
+      - observability/prometheus-operator-crds

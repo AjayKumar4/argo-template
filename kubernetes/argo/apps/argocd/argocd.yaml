@@ -1,31 +1,32 @@
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: argocd
-#   namespace: argocd
-# spec:
-#   project: home-kubernetes
-#   source:
-#     chart: argo
-#     repoURL: "https://github.com/AjayKumar4/argo-template.git/kubernetes/bootstrap/argo"
-#     targetRevision: "master"
-#     helm:
-#       valueFiles:
-#         - ../../../bootstrap/argo/values.yaml
-#   destination:
-#     name: in-cluster
-#     namespace: argocd
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#       - CreateNamespace=true
-#       - ServerSideApply=true
-#       - RespectIgnoreDifferences=true
-#   ignoreDifferences:
-#     - group: argoproj.io
-#       kind: Application
-#       jsonPointers:
-#         - /spec/syncPolicy
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  project: home-kubernetes
+  source:
+    path: kubernetes/bootstrap/argo
+    repoURL: "https://github.com/AjayKumar4/argo-template.git"
+    targetRevision: "master"
+    helm:
+      valueFiles:
+        - ../../../bootstrap/argo/values.yaml
+        - secrets://../../../bootstrap/argo/values.sops.yaml
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /spec/syncPolicy

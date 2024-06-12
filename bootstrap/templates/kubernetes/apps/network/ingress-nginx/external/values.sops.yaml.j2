@@ -1,0 +1,3 @@
+domain_id: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#"
+ingress_domain: "external.#{ bootstrap_cloudflare.domain }#"
+ingress_vip: "#{ bootstrap_cloudflare.ingress_vip }#"

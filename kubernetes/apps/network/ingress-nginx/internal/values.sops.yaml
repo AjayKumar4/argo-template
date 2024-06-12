@@ -1,0 +1,22 @@
+domain_id: ajaykumar-ie
+ingress_vip: 192.168.1.251
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3aWxLVTVvb2ExYmRpYzdX
+            STFOVWh0UEE3d1V3UVhucHpCVy9ZSVZ1RmtRCnVHRXVsSVhxNmFYVjhVb1ZCWnY4
+            a3lOSzNlR0REeDNhT1BTWitURnB6QmMKLS0tIFhjNHV6WWxoZVh1RXMwSVFIdDhR
+            bUlvSUtYR3BzYWw3ZWlXQ0NXV1FMK00K/Xw4ShL/aSZ3UfGbuv/NQFvmQKmqePNR
+            DaZVhdO1X4szoZtr+g8/4LZ2cuu0RDgk0/zHvF6iQ3uIMXKOg9rJ6w==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-12T19:17:40Z"
+    mac: ENC[AES256_GCM,data:6KFWKtNpPzAkVdFKrRY8IDj5/3YMEO3/Il6HU8eYibVek3/B5289u7AC4N1G0RLaVGxGpeacIBuALg1/6nsLBP7WqGDJdNpsHyc3pYsqaG0lFMtqFkgvWG+C7uDYYoiWTBsHC7fHOWIu7Y9YPWybjh6A4DLyXLx/HFUh3L3yOE8=,iv:aX7gIJUxlpT4LNk5zgQs8aohtJyU135TQy/E/zGi0c4=,tag:jjmdwnj5vZgt5d6KE6AC5g==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1

@@ -1,0 +1,12 @@
+fullnameOverride: k8s-gateway
+domain: {{ .Values.domain }}
+ttl: 1
+service:
+  type: LoadBalancer
+  port: 53
+  annotations:
+    io.cilium/lb-ipam-ips: {{ .Values.gateway_vip }}
+  externalTrafficPolicy: Cluster
+watchedResources:
+  - "Ingress"
+  - "Service"

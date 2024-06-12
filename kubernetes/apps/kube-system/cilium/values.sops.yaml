@@ -1,52 +1,5 @@
-hubble:
-    enabled: true
-    metrics:
-        enabled:
-            - dns:query
-            - drop
-            - tcp
-            - flow
-            - port-distribution
-            - icmp
-            - http
-        serviceMonitor:
-            enabled: true
-        dashboards:
-            enabled: true
-            annotations:
-                grafana_folder: Cilium
-    relay:
-        enabled: true
-        rollOutPods: true
-        prometheus:
-            serviceMonitor:
-                enabled: true
-    ui:
-        enabled: true
-        rollOutPods: true
-        ingress:
-            enabled: true
-            className: internal
-            hosts:
-                - hubble.ajaykumar.ie
-operator:
-    prometheus:
-        enabled: true
-        serviceMonitor:
-            enabled: true
-    dashboards:
-        enabled: true
-        annotations:
-            grafana_folder: Cilium
-prometheus:
-    enabled: true
-    serviceMonitor:
-        enabled: true
-        trustCRDsExist: true
-dashboards:
-    enabled: true
-    annotations:
-        grafana_folder: Cilium
+domain: hubble.ajaykumar.ie
+ipv4_cidr: 10.69.0.0/16
 sops:
     kms: []
     gcp_kms: []
@@ -56,14 +9,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZVUVPelNJUHBDcnpEUWdU
-            eU13K24zbC9hSzhVV3p2WldlVmF6bnBZS0JRCnFHVjUwOWt4cEhZRHVnWHJsb1Rv
-            QUxVd2Q4bkloZmVCODdNall0RzNxc1kKLS0tIFVQbHhSS0VTK1IyT0REWDJBTDhu
-            aXRoNmlaNGI4ZXM1YjRRdGxrcFpLRUkKr0wbjcNG2JvkNCP1dGUZQvMx9RsYgZ9R
-            XBVQ3eIIq5tl2p75swqb/k4OLAXPYbgHgGJNf6xWptu6WSs1gLdhDA==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBkYnA1NWI1bnBqdzdqYm1H
+            OHVKNEsrYk95Y3gwWGxsaFZpd3pSS3BhakJVCkNZUUZTTWgyTllSVVVsdDkrSTh1
+            MW54Z0ttMElyMTYyOW9qei9xV1hEb2cKLS0tIDZhYUxod3REdlBETUhXYll1QVdD
+            MEVtYlNhejE4aXVaUFhZdGxHc1ZDaHcKzr/I537y2DlMYMjieHCjbtLQZ2r3H8uJ
+            Lrf492nepPbrpcjrkMnyvGYIdsKFTYVsXoNBMHCN+qThF6OKcIGQ6w==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-11T22:05:10Z"
-    mac: ENC[AES256_GCM,data:9VPv+Chi3GkE1MlY2H90MPBAIadndDD8nwel9lzlzjXsQsqcDQj0cFiBCg7Rx8YZw9EQz0NuzFZnNRmIgHIwY3shUW1LUA+BEa7fs3U8JTfalvrI75eRoWCUaOwOG6VIUe3Wjyx/l6W44qF/Wv2Sk24pDI714s50Vviu8Xh4Ebw=,iv:eur4VsTyXKReMFJs6uEfxtfG7M0udWDPReoZ43DC+sA=,tag:rTInHJIUeoD7mqzU8xr3tw==,type:str]
+    lastmodified: "2024-06-12T19:17:40Z"
+    mac: ENC[AES256_GCM,data:j3MJZkLJpuGOZi0E6L/gAH0IubGRFA0VE0nuj/th4sYJROzz89le7xOQx39aiyPFIZRQpck7kCdlb+A/MVIouGlMzcw5W74iSOQauQMdv6CayT8xtkfLnFVRel/BntcKUNejU0p4fTrNriBPey0c8gTpVfrEOcMDiWjh7zMgVbg=,iv:hX0GvL7LwSYknkbHPFveUf8LJ7aTyWE7/iC/s4gSRbU=,tag:0mbPInrED/Xrks+0uOe2sQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1

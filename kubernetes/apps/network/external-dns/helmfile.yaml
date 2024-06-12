@@ -1,0 +1,24 @@
+---
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  timeout: 600
+  force: true
+  reuseValues: true
+
+environments:
+  default:
+    secrets:
+      - values.sops.yaml
+
+repositories:
+  - name: external-dns
+    url: https://kubernetes-sigs.github.io/external-dns
+
+releases:
+  - name: external-dns
+    namespace: network
+    chart: external-dns/external-dns
+    version: 1.14.4
+    values:
+      - values.yaml.gotmpl

@@ -1,0 +1,24 @@
+---
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  timeout: 600
+  force: true
+  reuseValues: true
+
+environments:
+  default:
+    secrets:
+      - values.sops.yaml
+
+repositories:
+  - name: k8s-gateway
+    url: https://ori-edge.github.io/k8s_gateway
+
+releases:
+  - name: k8s-gateway
+    namespace: network
+    chart: k8s-gateway/k8s-gateway
+    version: 2.4.0
+    values:
+      - values.yaml.gotmpl

@@ -1,0 +1,15 @@
+---
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  timeout: 600
+  force: true
+  reuseValues: true
+
+releases:
+  - name: reloader
+    namespace: kube-system
+    chart: oci://ghcr.io/stakater/charts/reloader
+    version: 1.0.107
+    values:
+      - values.yaml

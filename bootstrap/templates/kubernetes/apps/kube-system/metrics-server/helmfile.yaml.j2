@@ -1,0 +1,19 @@
+---
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  timeout: 600
+  force: true
+  reuseValues: true
+
+repositories:
+  - name: metrics-server
+    url: https://kubernetes-sigs.github.io/metrics-server
+
+releases:
+  - name: metrics-server
+    namespace: kube-system
+    chart: metrics-server/metrics-server
+    version: 3.12.1
+    values:
+      - values.yaml

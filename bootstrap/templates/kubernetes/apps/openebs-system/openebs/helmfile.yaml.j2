@@ -1,0 +1,19 @@
+---
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  timeout: 600
+  force: true
+  reuseValues: true
+
+repositories:
+  - name: openebs
+    url: https://openebs.github.io/openebs
+
+releases:
+  - name: openebs
+    namespace: openebs-system
+    chart: openebs/openebs
+    version: 4.0.1
+    values:
+      - values.yaml
