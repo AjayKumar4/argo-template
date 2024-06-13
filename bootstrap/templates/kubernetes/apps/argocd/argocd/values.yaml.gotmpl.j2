@@ -106,6 +106,9 @@ repoServer:
     - name: helm-secrets-private-keys
       secret:
         secretName: helm-secrets-private-keys
+    - name: helmfile-plugin
+      configMap:
+        name: helmfile-plugin
   volumeMounts:
     - mountPath: /custom-tools
       name: custom-tools
@@ -117,6 +120,9 @@ repoServer:
       name: custom-tools
     - mountPath: /helm-secrets-private-keys/
       name: helm-secrets-private-keys
+    - mountPath: /home/argocd/cmp-server/config/plugin.yaml
+      subPath: plugin.yaml
+      name: helmfile-plugin
   initContainers:
     - name: download-tools
       image: alpine:latest
