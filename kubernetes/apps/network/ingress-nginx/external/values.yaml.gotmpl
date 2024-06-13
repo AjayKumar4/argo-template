@@ -41,7 +41,7 @@ controller:
       namespaceSelector:
         any: true
   extraArgs:
-    default-ssl-certificate: "network/{{ .Values.domain_id }}-production-tls"
+    default-ssl-certificate: "network/{{ .Values.domain_id }}-staging-tls"
   resources:
     requests:
       cpu: 100m

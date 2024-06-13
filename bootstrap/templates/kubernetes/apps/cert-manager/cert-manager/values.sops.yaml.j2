@@ -1,4 +1,10 @@
 api_token: "#{ bootstrap_cloudflare.token }#"
 email: "#{ bootstrap_cloudflare.acme.email }#"
 domain: "#{ bootstrap_cloudflare.domain }#"
-domain_id: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#"
+secert_name: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#-tls"
+
+#% if bootstrap_cloudflare.acme.production %#
+server: https://acme-v02.api.letsencrypt.org/directory
+#% else %#
+server: https://acme-staging-v02.api.letsencrypt.org/directory
+#% endif %#
