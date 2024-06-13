@@ -1,5 +1,5 @@
 ingress_domain: "external.#{ bootstrap_cloudflare.domain }#"
 domain: "#{ bootstrap_cloudflare.domain }#"
-tunnel_id: #{ bootstrap_cloudflare.domain.tunnel.id }#
+tunnel_id: #{ bootstrap_cloudflare.tunnel.id }#
 tunnel_account_id: #{ bootstrap_cloudflare.tunnel.account_id }#
 tunnel_secret: #{ bootstrap_cloudflare.tunnel.secret }#
