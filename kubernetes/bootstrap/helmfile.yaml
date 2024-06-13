@@ -10,3 +10,4 @@ helmfiles:
   - path: ../apps/kube-system/cilium/helmfile.yaml
   - path: ../apps/kube-system/coredns/helmfile.yaml
   - path: ../apps/kube-system/kubelet-csr-approver/helmfile.yaml
+  - path: ../apps/cert-manager/cert-manager/helmfile.yaml
