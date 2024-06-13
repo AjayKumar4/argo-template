@@ -54,6 +54,18 @@ server:
     enabled: true
     serviceMonitor: *service-monitor
 repoServer:
+  extraContainers:
+  - name: plugin
+    image: lucj/argocd-plugin-helmfile:latest
+    command: ["/var/run/argocd/argocd-cmp-server"]
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 999
+    volumeMounts:
+    - mountPath: /var/run/argocd
+      name: var-files
+    - mountPath: /home/argocd/cmp-server/plugins
+      name: plugins
   metrics:
     enabled: true
     serviceMonitor: *service-monitor
