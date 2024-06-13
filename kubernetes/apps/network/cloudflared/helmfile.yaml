@@ -22,5 +22,7 @@ releases:
     namespace: network
     chart: .
     version: 1.0.0
+    secrets:
+      - values.sops.yaml
     needs:
       - network/cloudflared

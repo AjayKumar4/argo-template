@@ -1,10 +1,15 @@
-api_token: "#{ bootstrap_cloudflare.token }#"
-email: "#{ bootstrap_cloudflare.acme.email }#"
-domain: "#{ bootstrap_cloudflare.domain }#"
-secert_name: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#-tls"
+api_token: #{ bootstrap_cloudflare.token }#
+email: #{ bootstrap_cloudflare.acme.email }#
+domain: #{ bootstrap_cloudflare.domain }#
 
 #% if bootstrap_cloudflare.acme.production %#
+name: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#-production"
+secert_name: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#-production-tls"
+issuer_name: letsencrypt-production
 server: https://acme-v02.api.letsencrypt.org/directory
 #% else %#
+name: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#-staging"
+secert_name: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#-staging-tls"
+issuer_name: letsencrypt-staging
 server: https://acme-staging-v02.api.letsencrypt.org/directory
 #% endif %#

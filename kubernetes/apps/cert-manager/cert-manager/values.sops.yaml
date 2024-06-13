@@ -1,7 +1,9 @@
 api_token: EKvQW3il62uWYDORP2pVrWRjHFqrtDMNqsJWYiYm
 email: n.uajaykumar@gmail.com
 domain: ajaykumar.ie
-secert_name: ajaykumar-ie-tls
+name: ajaykumar-ie-staging
+secert_name: ajaykumar-ie-staging-tls
+issuer_name: letsencrypt-staging
 server: https://acme-staging-v02.api.letsencrypt.org/directory
 sops:
     kms: []
@@ -12,14 +14,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBSNTEyODZzMHczbmRjSTVy
-            VE44SzJRZlpQV3pacDR4Q1FvTThpUjI5OVhFCkdrTWhLUUd5TVd2SFVzdXVpaXp0
-            aVVDcGpGYWpoQXFMV1BDUm5Lc1VWeEEKLS0tIG9UMWFIOWVmS2RPRGoyTkpHUTBK
-            V3hsMTcwZUJaUmpjNWJlZ204QWQwd28KAzZ8oUVyDfXovkDJvhQQPKokq76AIIzr
-            j+mLTiIHVe/ZiM0wgv9ezMU30OzeKdds1xRVnMhYHgVr6hD87u2Dkg==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBXenpWQ05hUXJteHg0bTdY
+            aWpZbjFiOVlRTHNzQy9vUU5seW1yS3ZMcGxrCllZNmNHNzV2Z1lONGpFNG5tdzVK
+            MmhZbk1ZVzJteTBMTSs4YThibFpacVkKLS0tIEo0bE5VdGlEUENKZHB4MERVd1ZK
+            c002bXNLTERBS2ErZitxL0JwY0JZZ1UKiMahOxjP/X4WTz2PCa2Y2WrA7Fo74bU9
+            rwKMWMwCQcNWEpKQkX/jEYE6rU6iIQlUduKAEHF3Z63pThCO5NQSmg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-13T11:50:32Z"
-    mac: ENC[AES256_GCM,data:9A1/8h/M0uGgSmFC+cCnTNqa0Yf3t79U40/9m/WrLuW4zddrqHLR6S7eEmkierVO/77JDGm4u37b9Io8cXBjDCGeU881ymxObAOcfRY//L/HbfTRMdtyXhmVbXg/0mYMPzCgXyHhjIi2Huh/bwLumriQfKFxQsZ+qmki0Heg/u8=,iv:vLbMGfzjl8uscs0gMrMY43JEmUvQ1wwkNqf2SvaUSSU=,tag:DFAOG8CEcungU+tM85tQcg==,type:str]
+    lastmodified: "2024-06-13T11:56:50Z"
+    mac: ENC[AES256_GCM,data:lnYhcpipDjM+zDz8Z+B03Gwpz1CnJnaw1perk9DsO4MJhhOL1MQ0cFbet6ImCxXAoyfxxvm94esxjbMe4BPouN4Qp+ngxZvV2fAjwTeY7RIYCZvQH6CslT/7BZf/5cLSpZesXEGcgq9CKvWCVbS048EntUuvNscc+bM6RlgxroQ=,iv:16uRfw30/1bfMwnlaa34TbNqmSacX6PI3jCz0mRJwl4=,tag:wmA/xxHj6xRNMrmQAMIs3Q==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1
