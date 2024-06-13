@@ -22,3 +22,5 @@ releases:
     version: 2.4.0
     values:
       - values.yaml.gotmpl
+    secrets:
+      - values.sops.yaml

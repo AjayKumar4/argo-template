@@ -17,7 +17,9 @@ releases:
     chart: oci://ghcr.io/bjw-s/helm/app-template
     version: 3.2.1
     values:
-      - values.yaml
+      - values.
+    secrets:
+      - values.sops.yaml
   - name: cloudflared-dns-config
     namespace: network
     chart: .

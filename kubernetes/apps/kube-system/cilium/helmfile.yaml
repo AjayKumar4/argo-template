@@ -23,6 +23,8 @@ releases:
     version: 1.15.6
     values:
       - values.yaml.gotmpl
+    secrets:
+      - values.sops.yaml
   - name: cilium-policy
     namespace: kube-system
     chart: .
