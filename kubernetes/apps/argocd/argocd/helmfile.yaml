@@ -12,10 +12,6 @@ environments:
       - values.sops.yaml
 
 releases:
-  - name: helmfile-plugin
-    namespace: argocd
-    chart: .
-    version: 1.0.0
   - name: argocd
     namespace: argocd
     chart: oci://ghcr.io/argoproj/argo-helm/argo-cd
@@ -24,5 +20,3 @@ releases:
       - values.yaml.gotmpl
     secrets:
       - values.sops.yaml
-    needs:
-      - argocd/helmfile-plugin
