@@ -12,19 +12,19 @@ environments:
       - values.sops.yaml
 
 releases:
-  - name: cloudflared
-    namespace: network
-    chart: oci://ghcr.io/bjw-s/helm/app-template
-    version: 3.2.1
-    values:
-      - values.
-    secrets:
-      - values.sops.yaml
-  - name: cloudflared-dns-config
+  - name: cloudflared-config
     namespace: network
     chart: .
     version: 1.0.0
     secrets:
       - values.sops.yaml
+  - name: cloudflared
+    namespace: network
+    chart: oci://ghcr.io/bjw-s/helm/app-template
+    version: 3.2.1
+    values:
+      - values.yaml
+    secrets:
+      - values.sops.yaml
     needs:
-      - network/cloudflared
+      - network/cloudflared-config
