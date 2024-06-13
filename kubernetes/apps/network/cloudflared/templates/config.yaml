@@ -8,10 +8,10 @@ data:
   config.yaml: |
     ---
     originRequest:
-      originServerName: {{ .Values.ingress_domain }}
+      originServerName: "{{ .Values.ingress_domain }}"
 
     ingress:
-      - hostname: {{ .Values.domain }}
+      - hostname: "{{ .Values.domain }}"
         service: https://ingress-nginx-external-controller.network.svc.cluster.local:443
       - hostname: "*.{{ .Values.domain }}"
         service: https://ingress-nginx-external-controller.network.svc.cluster.local:443
