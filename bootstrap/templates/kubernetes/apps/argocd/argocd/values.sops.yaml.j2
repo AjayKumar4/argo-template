@@ -2,3 +2,8 @@ domain: "argocd.#{ bootstrap_cloudflare.domain }#"
 argocdServerAdminPassword: #{ bootstrap_argocd_admin_password }#
 githubSecret: #{ bootstrap_github_webhook_token }#
 ingress_domain: "external.#{ bootstrap_cloudflare.domain }#"
+#% if bootstrap_cloudflare.acme.production %#
+issuer_name: letsencrypt-production
+#% else %#
+issuer_name: letsencrypt-staging
+#% endif %#

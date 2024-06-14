@@ -2,6 +2,7 @@ domain: argocd.ajaykumar.ie
 argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
 githubSecret: bd77b8ded03b9fdc259013f221d5c244
 ingress_domain: external.ajaykumar.ie
+issuer_name: letsencrypt-production
 sops:
     kms: []
     gcp_kms: []
@@ -11,14 +12,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2VGVDU3Z2UVppNnlBZXBI
-            WjdCNER4YmZhVzd4S3Jnc1gzSlBPNUo0RUU0CjR1eG45cXhlbjB2eFlMWlE0Rjkv
-            bWpibjI3T0dvbm1wdmQ0Um5rVThEcWMKLS0tIC9xNVd4QU41MW5na1JGQW1uYUxt
-            bExQOUpNc0cvZkZFejEvcW1wU0FnSHcK08RBSAy3ZMd7G2VIyL/6DW/HckEI6WJw
-            B+xdehdGRs+L6RnNv3iWK4z6D0IfJTrIc1vcgNxZ1pfYoAWX9p54UQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAyWTVYRUpjYkNkeE84RER5
+            UEMwR09SOTdYTElSb0FDQVE0dU1MdytRUnlNCnVUOTJ0SERweG1PczF0bUY5dWVI
+            VE15WWlqeWhzV3ptYjE4cHZhSkpUYkkKLS0tIE9HcWlkM05qZ1JHZVBYdWpNREpV
+            K1ZTL1p0R09SV1R2bmFyOEpGdE82a1EK1bPcLBjs8VbYx3MBFvUa53fri6RtSkjQ
+            r2nQ+92lKgrw1CB6N7kXFLjwnXuwSaCalAlLqVO2eB7uPhPaWJUxUA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-14T22:39:23Z"
-    mac: ENC[AES256_GCM,data:3yztDAvoeYmF3f9gMI16kMRw9FS5rf7PgKs9UNxKLDv8fh7dIE1YcfTSoBE+Z+jJ4zvQtzXqfCkDrPp+d6C7ox1ui4XTNobR62VExLC/3DckqZPAwlIfotPaMgbniDXkQo3YV05ySsI0ujBG/mIIR7PfdFgSkwVorrUYK8LNQEI=,iv:nhHN3tvW7LkHwUaHN1Zmq41ekA2WQzRHQ8xUjr8rCwU=,tag:6Lmo51iZfSGTJNTYwGtj9Q==,type:str]
+    lastmodified: "2024-06-14T22:54:15Z"
+    mac: ENC[AES256_GCM,data:hyxr/xazKZdzP+rw0mxJdmfzo2TYYVkPYrfiQABHcuCxw0nLWr7xbVmbpjSBELLceSUr+i4dncZSO1q8MH3SJtAXBKznqQ7KvdW51JL7C3DEO4NxOAtyfy/7pAJ4eRtjNlZhmHezZQ0zWZrTqsD1TlFRab/IRTkgvqQ3GBPXoEY=,iv:gGX30DrRgUfOHzmcgIW3NqKbrIg+H5OHmUDWP5nb/iA=,tag:MVm14zUPo2rPQKiIYMl9zA==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1
