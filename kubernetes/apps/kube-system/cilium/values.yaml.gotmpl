@@ -16,7 +16,7 @@ endpointRoutes:
   enabled: true
 ipam:
   mode: kubernetes
-ipv4NativeRoutingCIDR: "{{ .Values.ipv4_cidr }}"
+ipv4NativeRoutingCIDR: {{ .Values.ipv4_cidr }}
 k8sServiceHost: 127.0.0.1
 k8sServicePort: 7445
 kubeProxyReplacement: true

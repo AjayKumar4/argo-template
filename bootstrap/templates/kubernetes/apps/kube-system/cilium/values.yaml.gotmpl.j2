@@ -20,9 +20,9 @@ endpointRoutes:
   enabled: true
 ipam:
   mode: kubernetes
-ipv4NativeRoutingCIDR: "{{ .Values.ipv4_cidr }}"
+ipv4NativeRoutingCIDR: {{ .Values.ipv4_cidr }}
 #% if bootstrap_feature_gates.dual_stack_ipv4_first %#
-ipv6NativeRoutingCIDR: "{{ .Values.ipv6_cidr }}"
+ipv6NativeRoutingCIDR: {{ .Values.ipv6_cidr }}
 ipv6:
   enabled: true
 #% endif %#
