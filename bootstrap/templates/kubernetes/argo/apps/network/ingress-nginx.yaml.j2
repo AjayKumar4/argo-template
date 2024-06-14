@@ -2,14 +2,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-nginx-internal
+  name: ingress-nginx-external
   namespace: argocd
 spec:
   project: home-kubernetes
   source:
-    path: kubernetes/apps/network/ingress-nginx/internal
-    repoURL: "https://github.com/AjayKumar4/argo-template.git"
-    targetRevision: "master"
+    path: kubernetes/apps/network/ingress-nginx
+    repoURL: "#{ bootstrap_github_address }#"
+    targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
   destination:
     name: in-cluster
     namespace: network
