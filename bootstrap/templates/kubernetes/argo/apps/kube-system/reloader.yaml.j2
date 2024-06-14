@@ -10,8 +10,6 @@ spec:
     path: kubernetes/apps/kube-system/reloader
     repoURL: "#{ bootstrap_github_address }#"
     targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
-    directory:
-      recurse: true
   destination:
     name: in-cluster
     namespace: kube-system

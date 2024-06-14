@@ -10,8 +10,6 @@ spec:
     path: kubernetes/apps/kube-system/spegel
     repoURL: "https://github.com/AjayKumar4/argo-template.git"
     targetRevision: "master"
-    directory:
-      recurse: true
   destination:
     name: in-cluster
     namespace: kube-system
