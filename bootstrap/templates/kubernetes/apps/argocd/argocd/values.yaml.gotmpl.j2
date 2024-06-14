@@ -56,7 +56,7 @@ server:
 repoServer:
   extraContainers:
   - name: plugin
-    image: lucj/argocd-plugin-helmfile
+    image: travisghansen/argo-cd-helmfile
     command: ["/var/run/argocd/argocd-cmp-server"]
     securityContext:
       runAsNonRoot: true
