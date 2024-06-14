@@ -1,3 +1,8 @@
-domain_id: "#{ bootstrap_cloudflare.domain.replace('.', '-') }#"
 ingress_domain: "external.#{ bootstrap_cloudflare.domain }#"
 ingress_vip: "#{ bootstrap_cloudflare.ingress_vip }#"
+
+#% if bootstrap_cloudflare.acme.production %#
+certificate_name: "network/#{ bootstrap_cloudflare.domain.replace('.', '-') }#-production-tls"
+#% else %#
+certificate_name: "network/#{ bootstrap_cloudflare.domain.replace('.', '-') }#-staging-tls"
+#% endif %#

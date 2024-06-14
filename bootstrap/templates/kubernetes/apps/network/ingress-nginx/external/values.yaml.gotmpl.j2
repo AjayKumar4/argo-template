@@ -41,11 +41,7 @@ controller:
       namespaceSelector:
         any: true
   extraArgs:
-    #% if bootstrap_cloudflare.acme.production %#
-    default-ssl-certificate: "network/{{ .Values.domain_id }}-production-tls"
-    #% else %#
-    default-ssl-certificate: "network/{{ .Values.domain_id }}-staging-tls"
-    #% endif %#
+    default-ssl-certificate: {{ .Values.certificate_name }}
   resources:
     requests:
       cpu: 100m
