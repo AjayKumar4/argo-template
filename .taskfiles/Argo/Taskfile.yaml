@@ -11,7 +11,7 @@ tasks:
   bootstrap:
     desc: Bootstrap Argo into a Kubernetes cluster
     cmds:
-      - kubectl --kubeconfig {{.KUBECONFIG_FILE}} get namespace argocd | kubectl create namespace argocd
+      - kubectl --kubeconfig {{.KUBECONFIG_FILE}} get namespace argocd | kubectl  --kubeconfig {{.KUBECONFIG_FILE}} create namespace argocd
       - |
         kubectl --kubeconfig {{.KUBECONFIG_FILE}} get secrets/age-secret-keys -n argocd \
         | kubectl --kubeconfig {{.KUBECONFIG_FILE}} -n argocd create secret generic age-secret-keys --from-file=key.txt={{.AGE_FILE}}
