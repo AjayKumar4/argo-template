@@ -13,8 +13,8 @@ tasks:
     cmds:
       - kubectl --kubeconfig {{.KUBECONFIG_FILE}} get namespace argocd | kubectl create namespace argocd
       - |
-        kubectl --kubeconfig {{.KUBECONFIG_FILE}} get secrets/helm-secrets-private-keys -n argocd \
-        | kubectl --kubeconfig {{.KUBECONFIG_FILE}} -n argocd create secret generic helm-secrets-private-keys --from-file=key.txt={{.AGE_FILE}}
+        kubectl --kubeconfig {{.KUBECONFIG_FILE}} get secrets/age-secret-keys -n argocd \
+        | kubectl --kubeconfig {{.KUBECONFIG_FILE}} -n argocd create secret generic age-secret-keys --from-file=key.txt={{.AGE_FILE}}
       - helmfile --kubeconfig {{.KUBECONFIG_FILE}} --file {{.ARGO_HELMFILE_FILE}} apply --skip-diff-on-install --suppress-diff
       - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo
       - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo/projects

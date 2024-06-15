@@ -8,6 +8,13 @@ configs:
   cm:
     statusbadge.enabled: true
     kustomize.buildOptions: '--enable-helm'
+    resource.exclusions: |
+      - apiGroups:
+          - cilium.io
+        kinds:
+          - CiliumIdentity
+        clusters:
+          - "*"
   secret:
     argocdServerAdminPassword: {{ .Values.argocdServerAdminPassword }}
     githubSecret: {{ .Values.githubSecret }}
@@ -64,18 +71,18 @@ repoServer:
     env:
     - name: SOPS_AGE_KEY_FILE
       # Multiple keys can be separated by space
-      value: /helm-secrets-private-keys/key.txt
+      value: /age-secret-keys/key.txt
     volumeMounts:
     - mountPath: /var/run/argocd
       name: var-files
     - mountPath: /home/argocd/cmp-server/plugins
       name: plugins
-    - mountPath: /helm-secrets-private-keys/
-      name: helm-secrets-private-keys
+    - mountPath: /age-secret-keys/
+      name: age-secret-keys
   volumes:
-  - name: helm-secrets-private-keys
+  - name: age-secret-keys
     secret:
-      secretName: helm-secrets-private-keys
+      secretName: age-secret-keys
   metrics:
     enabled: true
     serviceMonitor: *service-monitor
