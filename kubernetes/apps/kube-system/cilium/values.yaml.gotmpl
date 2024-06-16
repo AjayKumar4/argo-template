@@ -1,3 +1,4 @@
+---
 autoDirectNodeRoutes: true
 bpf:
   masquerade: false
@@ -7,16 +8,20 @@ cgroup:
   hostRoot: /sys/fs/cgroup
 cluster:
   id: 1
-  name: "aj-home-lab"
+  name: aj-home-lab
 cni:
   exclusive: false
+containerRuntime:
+  integration: containerd
 # NOTE: devices might need to be set if you have more than one active NIC on your hosts
 # devices: eno+ eth+
 endpointRoutes:
   enabled: true
+hubble:
+  enabled: false
 ipam:
   mode: kubernetes
-ipv4NativeRoutingCIDR: {{ .Values.ipv4_cidr }}
+ipv4NativeRoutingCIDR: 10.69.0.0/16
 k8sServiceHost: 127.0.0.1
 k8sServicePort: 7445
 kubeProxyReplacement: true
@@ -27,6 +32,9 @@ loadBalancer:
   algorithm: maglev
   mode: snat
 localRedirectPolicy: true
+operator:
+  replicas: 1
+  rollOutPods: true
 rollOutCiliumPods: true
 routingMode: native
 securityContext:
@@ -47,55 +55,3 @@ securityContext:
       - NET_ADMIN
       - SYS_ADMIN
       - SYS_RESOURCE
-
-hubble:
-  enabled: "True"
-  metrics:
-    enabled:
-      - dns:query
-      - drop
-      - tcp
-      - flow
-      - port-distribution
-      - icmp
-      - http
-    serviceMonitor:
-      enabled: true
-    dashboards:
-      enabled: true
-      annotations:
-        grafana_folder: Cilium
-  relay:
-    enabled: true
-    rollOutPods: true
-    prometheus:
-      serviceMonitor:
-        enabled: true
-  ui:
-    enabled: true
-    rollOutPods: true
-    ingress:
-      enabled: true
-      className: internal
-      hosts:
-        - {{ .Values.domain }}
-operator:
-  replicas: 1
-  rollOutPods: true
-  prometheus:
-    enabled: true
-    serviceMonitor:
-      enabled: true
-  dashboards:
-    enabled: true
-    annotations:
-      grafana_folder: Cilium
-prometheus:
-  enabled: true
-  serviceMonitor:
-    enabled: true
-    trustCRDsExist: true
-dashboards:
-  enabled: true
-  annotations:
-    grafana_folder: Cilium
