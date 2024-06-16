@@ -62,7 +62,7 @@ securityContext:
       - SYS_RESOURCE
 
 hubble:
-  enabled: "#{ bootstrap_cloudflare.enabled|default(false) }#"
+  enabled: #{ bootstrap_cloudflare.enabled|default(false) | lower }#
   #% if bootstrap_cloudflare.enabled %#
   metrics:
     enabled:
