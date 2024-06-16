@@ -26,26 +26,26 @@ spec:
       kind: Application
       jsonPointers:
         - /spec/syncPolicy
-    - group: core
+    - group: ""
       kind: ConfigMap
       name: hubble-ca-cert
       jsonPointers:
         - /data/ca.crt
-    - group: core
+    - group: ""
       kind: Secret
       name: hubble-relay-client-certs
       jsonPointers:
         - /data/ca.crt
         - /data/tls.crt
         - /data/tls.key
-    - group: core
+    - group: ""
       kind: Secret
       name: hubble-server-certs
       jsonPointers:
         - /data/ca.crt
         - /data/tls.crt
         - /data/tls.key
-    - group: core
+    - group: ""
       kind: Secret
       name: cilium-ca
       jsonPointers:
