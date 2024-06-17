@@ -15,7 +15,7 @@ configs:
           - CiliumIdentity
         clusters:
           - "*"
-    cmp:
+  cmp:
     create: true
     plugins:
       helmfile:
@@ -41,7 +41,6 @@ configs:
         # https://github.com/argoproj/argo-cd/pull/12940
         # https://github.com/travisghansen/argo-cd-helmfile/issues/37
         preserveFileMode: true
-
   secret:
     argocdServerAdminPassword: {{ .Values.argocdServerAdminPassword }}
     githubSecret: {{ .Values.githubSecret }}
