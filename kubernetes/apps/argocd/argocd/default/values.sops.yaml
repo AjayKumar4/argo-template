@@ -1,0 +1,26 @@
+global:
+    domain: argocd.ajaykumar.ie
+configs:
+    secret:
+        argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
+        githubSecret: bd77b8ded03b9fdc259013f221d5c244
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB4L3ptblhZS1g1MlpjSUlK
+            ZmlFbzJvcmpCV0xvWkxNQmxZeUhyQkNPajI4CmlURUxrbHlKenB0SGtSVUI1dFI5
+            aEIvWEFRTFY5bExKN1o3YjFXblNFWmsKLS0tIG9Ea1hseXRPNWZTUWNuM0RsQnFh
+            OHphdi9PbjZKeHhyUy84YVk5T2FNajQKHuOq4Ifli4K7M++wbyI/rn6o+kptos1v
+            DGZY7NoooW6VVOgQ5nYdjG8Lg6jroPchCfkDu7VKc9ZEqzcNgvgC3A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-17T16:46:38Z"
+    mac: ENC[AES256_GCM,data:Mod1k35xWYAQH/SwIB0BArzwKobb4kwf9B6ivjcgzJJtWwDP+Dyg5PGe6t9sO2rEtU5to3AuAsAI8zWgMKrtX/0QjiZtNEpO8HyaZOz192x5lQRpMcSr6AAJv+na85SgxgZHps3lFVcI6jzHuzlTOe2AjjkEb04yuPIOtU1lyrU=,iv:mVHhd7MsMir5IKo7jroYc4513nGnMWQhvFOBzJfiW8s=,tag:94DaVBEyt29N9vx37TW3qw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1
