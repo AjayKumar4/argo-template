@@ -45,7 +45,7 @@ repoServer:
   volumes:
   - name: age-secret-keys
     secret:
-      secretName: argocd-age-secret-keys
+      secretName: age-secret-keys
   - emptyDir: {}
     name: helmfile-cmp-tmp
   extraContainers:
