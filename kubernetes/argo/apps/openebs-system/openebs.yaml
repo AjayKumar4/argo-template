@@ -15,6 +15,7 @@ spec:
     namespace: openebs-system
   syncPolicy:
     automated:
+      allowEmpty: true
       prune: true
       selfHeal: true
     syncOptions:
