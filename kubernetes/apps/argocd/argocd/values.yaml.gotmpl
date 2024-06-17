@@ -63,7 +63,7 @@ server:
 repoServer:
   extraContainers:
   - name: plugin
-    image: ajaykumar4/argocd-plugins
+    image: ajaykumar4/argocd-plugins:latest
     command: ["/var/run/argocd/argocd-cmp-server"]
     securityContext:
       runAsNonRoot: true
