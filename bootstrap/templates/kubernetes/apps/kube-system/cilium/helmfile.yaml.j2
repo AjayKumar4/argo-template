@@ -33,8 +33,3 @@ releases:
       - values.sops.yaml
     needs:
       - kube-system/cilium
-
-helmfiles:
-  - path: default/helmfile.yaml
-    secrets:
-      - values.sops.yaml
