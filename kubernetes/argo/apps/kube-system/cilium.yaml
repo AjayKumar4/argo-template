@@ -50,4 +50,3 @@ spec:
       jsonPointers:
         - /data/ca.crt
         - /data/ca.key
-    - resources: {}
