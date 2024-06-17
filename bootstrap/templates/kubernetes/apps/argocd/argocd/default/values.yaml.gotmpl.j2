@@ -95,9 +95,9 @@ repoServer:
         name: argocd-cmp-cm
     - name: helmfile-tmp
       emptyDir: {}
-  - name: age-secret-keys
-    secret:
-      secretName: age-secret-keys
+    - name: age-secret-keys
+      secret:
+        secretName: age-secret-keys
   metrics:
     enabled: true
     serviceMonitor: *service-monitor
