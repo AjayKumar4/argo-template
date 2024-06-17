@@ -7,7 +7,7 @@ helmDefaults:
   reuseValues: true
 
 helmfiles:
-  - path: default/helmfile.yaml
+  - path: ./default/helmfile.yaml
     secrets:
       - values.sops.yaml
 
