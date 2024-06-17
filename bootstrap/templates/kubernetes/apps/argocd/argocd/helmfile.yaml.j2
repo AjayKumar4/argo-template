@@ -6,11 +6,6 @@ helmDefaults:
   force: true
   reuseValues: true
 
-environments:
-  default:
-    secrets:
-      - values.sops.yaml
-
 helmfiles:
   - path: default/helmfile.yaml
     values:
