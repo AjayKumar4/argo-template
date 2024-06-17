@@ -6,15 +6,9 @@ helmDefaults:
   force: true
   reuseValues: true
 
-environments:
-  default:
-    secrets:
-      - values.sops.yaml
-
 repositories:
   - name: cilium
     url: https://helm.cilium.io
-
 
 releases:
   - name: cilium
@@ -25,16 +19,4 @@ releases:
       - values.yaml.gotmpl
     secrets:
       - values.sops.yaml
-  - name: cilium-policy
-    namespace: kube-system
-    chart: .
-    version: 1.0.0
-    secrets:
-      - values.sops.yaml
-    needs:
-      - kube-system/cilium
 
-helmfiles:
-  - path: default/helmfile.yaml
-    secrets:
-      - values.sops.yaml

@@ -42,30 +42,31 @@ server:
     enabled: true
     serviceMonitor: *service-monitor
 repoServer:
-  extraContainers:
-  - name: plugin
-    image: ajaykumar4/argocd-plugins
-    command: ["/var/run/argocd/argocd-cmp-server"]
-    securityContext:
-      runAsNonRoot: true
-      runAsUser: 999
-    env:
-    - name: XDG_CONFIG_HOME
-      value: /.config
-    - name: SOPS_AGE_KEY_FILE
-      # Multiple keys can be separated by space
-      value: /age-secret-keys/key.txt
-    volumeMounts:
-    - mountPath: /var/run/argocd
-      name: var-files
-    - mountPath: /home/argocd/cmp-server/plugins
-      name: plugins
-    - mountPath: /age-secret-keys/
-      name: age-secret-keys
   volumes:
   - name: age-secret-keys
     secret:
-      secretName: age-secret-keys
+      secretName: argocd-age-secret-keys
+  - emptyDir: {}
+    name: helmfile-cmp-tmp
+  extraContainers:
+  - name: helmfile-plugin
+    image: travisghansen/argo-cd-helmfile:latest
+    command: [/var/run/argocd/argocd-cmp-server]
+    env:
+    - name: SOPS_AGE_KEY_FILE
+      value: /age-secret-keys/keys.txt
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 999
+    volumeMounts:
+      - mountPath: /age-secret-keys/
+        name: age-secret-keys
+      - mountPath: /var/run/argocd
+        name: var-files
+      - mountPath: /home/argocd/cmp-server/plugins
+        name: plugins
+      - mountPath: /tmp
+        name: helmfile-cmp-tmp
   metrics:
     enabled: true
     serviceMonitor: *service-monitor
