@@ -56,6 +56,9 @@ server:
     enabled: true
     serviceMonitor: *service-monitor
 repoServer:
+  env:
+    - name: SOPS_AGE_KEY_FILE
+      value: /age-secret-keys/keys.txt
   extraContainers:
     - name: helmfile
       image: ghcr.io/helmfile/helmfile:v0.157.0
