@@ -56,38 +56,28 @@ server:
     enabled: true
     serviceMonitor: *service-monitor
 repoServer:
-  env:
-    - name: SOPS_AGE_KEY_FILE
-      value: /age-secret-keys/keys.txt
   extraContainers:
-    - name: helmfile
-      image: ghcr.io/helmfile/helmfile:v0.157.0
-      # Entrypoint should be Argo CD lightweight CMP server i.e. argocd-cmp-server
-      command: ["/var/run/argocd/argocd-cmp-server"]
-      env:
-        - name: HELM_CACHE_HOME
-          value: /tmp/helm/cache
-        - name: HELM_CONFIG_HOME
-          value: /tmp/helm/config
-        - name: HELMFILE_CACHE_HOME
-          value: /tmp/helmfile/cache
-        - name: HELMFILE_TEMPDIR
-          value: /tmp/helmfile/tmp
-        - name: SOPS_AGE_KEY_FILE
-          value: /age-secret-keys/keys.txt
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 999
-      volumeMounts:
-        - mountPath: /var/run/argocd
-          name: var-files
-        - mountPath: /home/argocd/cmp-server/plugins
-          name: plugins
-        - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-          subPath: helmfile.yaml
-          name: argocd-cmp-cm
-        - mountPath: /age-secret-keys/
-          name: age-secret-keys
+  - name: plugin
+    image: ajaykumar4/argocd-plugins
+    command: ["/var/run/argocd/argocd-cmp-server"]
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 999
+    env:
+    - name: SOPS_AGE_KEY_FILE
+      # Multiple keys can be separated by space
+      value: /age-secret-keys/key.txt
+    volumeMounts:
+    - mountPath: /var/run/argocd
+      name: var-files
+    - mountPath: /home/argocd/cmp-server/plugins
+      name: plugins
+    - mountPath: /age-secret-keys/
+      name: age-secret-keys
+  volumes:
+  - name: age-secret-keys
+    secret:
+      secretName: age-secret-keys
   volumeMounts:
     - mountPath: /age-secret-keys/
       name: age-secret-keys
