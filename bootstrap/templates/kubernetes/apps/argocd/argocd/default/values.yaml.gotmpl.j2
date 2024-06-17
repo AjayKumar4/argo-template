@@ -60,10 +60,6 @@ repoServer:
           name: var-files
         - mountPath: /home/argocd/cmp-server/plugins
           name: plugins
-        # Register helmfile plugin into sidecar
-        - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-          subPath: helmfile.yaml
-          name: argocd-cmp-cm
         - mountPath: /age-secret-keys/
           name: age-secret-keys
   volumes:
