@@ -7,7 +7,7 @@ configs:
     server.insecure: true
   cm:
     statusbadge.enabled: true
-    kustomize.buildOptions: '--enable-helm'
+    kustomize.buildOptions: '--enable-helm --enable-alpha-plugins --enable-exec'
     resource.exclusions: |
       - apiGroups:
           - cilium.io
@@ -15,6 +15,33 @@ configs:
           - CiliumIdentity
         clusters:
           - "*"
+    cmp:
+    create: true
+    plugins:
+      helmfile:
+        init:
+          command: ["argo-cd-helmfile.sh"]
+          args: ["init"]
+        generate:
+          command: ["argo-cd-helmfile.sh"]
+          args: ["generate"]
+
+        # discover is implied with sidecar-style plugins
+        # executed in the sidecar and with standard env vars like init and generate
+        discover:
+          find:
+            command: [argo-cd-helmfile.sh, discover]
+        parameters:
+          #static:
+          #- name: values-files
+          #  title: Values Files
+          #  collectionType: array
+          dynamic:
+            command: [argo-cd-helmfile.sh, parameters]
+        # https://github.com/argoproj/argo-cd/pull/12940
+        # https://github.com/travisghansen/argo-cd-helmfile/issues/37
+        preserveFileMode: true
+
   secret:
     argocdServerAdminPassword: {{ .Values.argocdServerAdminPassword }}
     githubSecret: {{ .Values.githubSecret }}
@@ -61,28 +88,33 @@ server:
     enabled: true
     serviceMonitor: *service-monitor
 repoServer:
-  extraContainers:
-  - name: plugin
-    image: ajaykumar4/argocd-plugins
-    command: ["/var/run/argocd/argocd-cmp-server"]
-    securityContext:
-      runAsNonRoot: true
-      runAsUser: 999
     env:
+    - name: XDG_CONFIG_HOME
+      value: /.config
     - name: SOPS_AGE_KEY_FILE
-      # Multiple keys can be separated by space
       value: /age-secret-keys/key.txt
-    volumeMounts:
-    - mountPath: /var/run/argocd
-      name: var-files
-    - mountPath: /home/argocd/cmp-server/plugins
-      name: plugins
+    - name: PATH
+      value: "/custom-tools:$(PATH)"
+    - name: HELM_PLUGINS
+      value: "/custom-tools/.helm/data/plugins"
+  volumes:
+    - name: custom-tools
+      emptyDir: {}
+    - name: age-secret-keys
+      secret:
+        secretName: age-secret-keys
+  volumeMounts:
+    - mountPath: /custom-tools
+      name: custom-tools
     - mountPath: /age-secret-keys/
       name: age-secret-keys
-  volumes:
-  - name: age-secret-keys
-    secret:
-      secretName: age-secret-keys
+  initContainers:
+    - name: argocd-plugins
+      image: ajaykumar4/argocd-plugins
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - mountPath: /custom-tools
+          name: custom-tools
   metrics:
     enabled: true
     serviceMonitor: *service-monitor
