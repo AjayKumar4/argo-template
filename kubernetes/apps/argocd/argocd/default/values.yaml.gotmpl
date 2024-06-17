@@ -67,9 +67,6 @@ repoServer:
         - mountPath: /age-secret-keys/
           name: age-secret-keys
   volumes:
-    - name: argocd-cmp-cm
-      configMap:
-        name: argocd-cmp-cm
     - name: helmfile-tmp
       emptyDir: {}
     - name: age-secret-keys
