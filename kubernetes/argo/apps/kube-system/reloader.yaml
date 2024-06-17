@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: reloader
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   project: home-kubernetes
   source:
