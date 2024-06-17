@@ -1,10 +1,10 @@
 api_token: EKvQW3il62uWYDORP2pVrWRjHFqrtDMNqsJWYiYm
 email: n.uajaykumar@gmail.com
 domain: ajaykumar.ie
-name: ajaykumar-ie-production
-secert_name: ajaykumar-ie-production-tls
-issuer_name: letsencrypt-production
-server: https://acme-v02.api.letsencrypt.org/directory
+name: ajaykumar-ie-staging
+secert_name: ajaykumar-ie-staging-tls
+issuer_name: letsencrypt-staging
+server: https://acme-staging-v02.api.letsencrypt.org/directory
 sops:
     kms: []
     gcp_kms: []
@@ -14,14 +14,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBySXplY3dhYjRYZTcya0tn
-            NDJ5YUZUcXQzN2ZBL2p0R2FzRmFBUS9wTlJjCnJqVFowcjJPK0MzQVJOTDM4M0ht
-            cWxUaHVZWVdRa0lZNmxPSjBqRkhtTmMKLS0tIDhsRXZrSFhrWU42UGErUEJuKzlV
-            aWxKR2VSZGR6NzFJazhwMlB2Ym1sSVEKUBdAsvnpxZI1FUgoXjAejkhLCnAlgfet
-            zS7FTvOl8wtV9nbt2n0Bhcmf0BnCR0/eg2Vhl7nzq5hAOKpqwhEnCw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB0alFxdzBiQU5QeFVlTFZX
+            c21XU2l0OEZiOTN5L2RBdk1jQWtRMkFyWlhNCnp2VDducVA4MitSL3dpNjhHNTlm
+            cUhiSmdIN2d1S0VPczAxNFJ4OHhzbncKLS0tIDJ0NzVqN3FkSGk0TzJkcE5ncWNP
+            eG1lRlhiNnZjZlZlTjBSQWxGMit3VXcKvnUK3EhZVW3x4GPumE9GlvnPmaVF7Z9t
+            wePP3PqGE5kEj68gku21n3v4Rc8eaVdckIxH1PHRHwFNfXRRi8TxJw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-17T19:13:18Z"
-    mac: ENC[AES256_GCM,data:AeKcN8oZBfSeZ2FiIlKdsjseJtXTPKkNv7o06t6rDm/wgNHk1aj7GKn5bVE3LdepfD7R/h746ClKs2I+P0pGjEek4vl9vK0O76Gjho60kHO0cnqlj3Dh23vbDV0F79aMrNPJYzn0CEBL3kfD47AZWDkCj+xZ1r954+FRQHass9Q=,iv:CWP8yVQ61JcCBa7gYTgQhXhBmaugv3AWyyTg7zADRxs=,tag:ZNa8+jt57Vbr87AUemdpRg==,type:str]
+    lastmodified: "2024-06-17T19:14:52Z"
+    mac: ENC[AES256_GCM,data:xVZO8SjbgLY7e7AD7roraM+F4W3J/lNou/aLm30ZGovUH2cldmv4lr4fw3xG5cPJtJqxZ2BxDCwREs3vLa7UwVnPIhTDUp7IEOdvRZlFQUbMi40ccX7r+mlPNERn9auY33HUqdUGhkygcku50VrdFrX9WBdkDIFfMH9TLLTszJ8=,iv:UEILPQb4ujrReZRoolrbC8LgI+Upg6B8ZiFdONhdQUc=,tag:JvfI0pqyRW80Mf1Tm2YWQg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1

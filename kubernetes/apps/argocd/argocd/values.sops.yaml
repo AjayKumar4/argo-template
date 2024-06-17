@@ -2,7 +2,7 @@ domain: argocd.ajaykumar.ie
 argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
 githubSecret: bd77b8ded03b9fdc259013f221d5c244
 ingress_domain: external.ajaykumar.ie
-issuer_name: letsencrypt-production
+issuer_name: letsencrypt-staging
 sops:
     kms: []
     gcp_kms: []
@@ -12,14 +12,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKdW9sZVZEanJKZEduV0py
-            cG4wZlVWdjJ4WUY0eTlqOWxKYU1VM25VendvCjhuNjNyN0VFQ2ZIdnAvT3BPSlBl
-            SlV6MTVIdm1wQ0pMelc1dFQ5aHRBS0UKLS0tIHhMQnhMT3RXVjhZMU00WFdaNVlt
-            MzM1NlI3SDdGTFhhTjZlQnc0Q1Z2bVEK8eVZKTjNPtLB1eha4N1bVGooDmvq4nKs
-            iDKBYNR5xbqV4XvR4qtAxXhKJV2+blyds9Jz4bRaZrTjh7jYFgPNdQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA1ZVJ5MGhnVTJwVTExZHh0
+            OU02RkV4L0ZQa2ppY2FRV2g0aVF2NnU2MXljCjI1bWFSVzJiQ3QxUnAzd1VDNHU4
+            dGw5V2VtckkwOUpGcHc0azYwaExtQlUKLS0tIDcvRU5NakVxQ3B5VFJleUhMTjR6
+            elNBYnpNa1E3emg5RVIycm9oQW9ubEEKXVBBCeEaJm1J9sfWu1DdDik11FFuD3kU
+            RNduxdPX6mI/x2WCWh+7raytaHp4o3eHMBvrGsgzawCoPdPszQ1Z9w==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-17T19:13:18Z"
-    mac: ENC[AES256_GCM,data:S97Wdru1RtuOxeQnLn1ukaw4Q2UAl5tnz02pc2HO45bBAShYz/b4K45SnYiOtyVGH41wjhI8+xLPoMnix711pwwAQhVjA69/o6gmt+vtk67C8GF8eJTk10x3ZZ0c8hKdmbAv3KGoDM43MQCaWPX7F0scwxw9sltX4hgv2k5Wxqk=,iv:DcNoEgRJWbR7GSitVm4/pUqy1LP3NTGhfe6QQsmQmro=,tag:LGlD3IMdcOv1OFn9T/7v9Q==,type:str]
+    lastmodified: "2024-06-17T19:14:52Z"
+    mac: ENC[AES256_GCM,data:/7bkATQeUydKUnRAncB7Tt5avzHxL17lqYb+9f8d4fsAMeTlMcv/Ikb74xcFjGgFAbF/J6inAmUiHS9oewsYDrqnBKL0LDa8YQSwW7CMdkjun/X526G+YhimIiHQXJwOBLRe/OfF5nbQF9Z/eDOfs63z1nPdNV53G5zbDP1bFOI=,iv:vuqzi93wni1fyouDhSmZ8vjQH4rdo/mlAi2e8QYjj7s=,tag:ucwR3CtaP5RWZgW00fWLuw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1

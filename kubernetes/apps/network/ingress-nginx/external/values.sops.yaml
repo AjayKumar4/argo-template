@@ -1,6 +1,6 @@
 ingress_domain: external.ajaykumar.ie
 ingress_vip: 192.168.1.251
-certificate_name: network/ajaykumar-ie-production-tls
+certificate_name: network/ajaykumar-ie-staging-tls
 sops:
     kms: []
     gcp_kms: []
@@ -10,14 +10,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZWWlWS1c1QUp3d0o3TG1Q
-            ZkxvZE9PNi9iQWwrSlArM0U4eEwrN3RCZmpJCnJ2TndmTW4zOVZic282L1h6T3JQ
-            NEdpZHNOSEN5bllrby9QZ3lPUVk1cGMKLS0tIGpBVys4ZklqbFlSdHU2dnpzaDRW
-            MGsxUHBsZ3Bzdi9GN3lKSUsrUlZTck0KOHOzpZEO0AoBGxv9Hp4+UxenAe6nb6uJ
-            UT6mDOuIrgnZZTbwBBovOoFEzqC3w43Xs5pwUF+RljG5aX8DR/V0Pg==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB0NlI1WGE5cURiN1RZeklF
+            c2pIay9Rbjk1aE5udWxPV0k4QnNwdzJGbkZNCnhHaFRIczZ1NThhMUNaSlBEdGs1
+            RHE1K2NQbFo2UWlQYlpRbFZoczhraDgKLS0tIDVRN3VDSDBmR01wRHRHZjBRSmk5
+            WWV1dDNNNmdieXdlTTBRSXlkZ1JOcG8K+PhQ3uNHMIroMTf+4COkNAsLiG7dWkQ/
+            aTpkKrVdcG2bo/kSeaw53Swu8DPE3b8M0x+fFQvqmmzfuacjZh5RHw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-17T19:13:18Z"
-    mac: ENC[AES256_GCM,data:aLdH2vKgonHNndQRAnPDKKtMvZ8Eee1SrMZhPxaowLpQ+EkCKEMsOF0DCuaKjNh3iRHjP5rAfr4Z5QHRqqv1Rp/VkRcRU8aEp15puLkXN0Lm1CzGGtp+3ZkrTxgB5VLu13qPmquhz8P1Sw9I0CK5g07YT9Rid+eFH061MFeSi+w=,iv:LlZjyl5apz3ORn/fDeufkucHTLg2JvrNxIvC8Ns/HGc=,tag:kpuoZKf1gSlysOmloQZI4g==,type:str]
+    lastmodified: "2024-06-17T19:14:52Z"
+    mac: ENC[AES256_GCM,data:tbW/xllTDCHFNLUSrDsO8yspoXqROJjsbIun0HihE+ZNeW2nkpnIlkp3yYfqifnoXFtdK2DgjyZpbVm0af9Itp6osNAKCwb64NcZ8Es9uOlf8CFZwxZnu79zJaphdiu+oUDJ/daM1LkuT/ezG3XpZLE38w6f0ClB/Iw95ROZ55g=,iv:gzyWFrswZUw3aNn00uRDrlJ7e0vx5S5Vm29XIhddUWw=,tag:+9sr+7xaUDDTlvnTSIAByA==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1
