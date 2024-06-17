@@ -69,8 +69,6 @@ repoServer:
       runAsNonRoot: true
       runAsUser: 999
     env:
-    - name: XDG_CONFIG_HOME
-      value: /.config
     - name: SOPS_AGE_KEY_FILE
       # Multiple keys can be separated by space
       value: /age-secret-keys/key.txt
