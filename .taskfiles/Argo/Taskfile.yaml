@@ -4,7 +4,7 @@ version: "3"
 
 vars:
   GITHUB_DEPLOY_KEY_FILE: "{{.KUBERNETES_DIR}}/bootstrap/flux/github-deploy-key.sops.yaml"
-  ARGO_HELMFILE_FILE: "{{.KUBERNETES_DIR}}/apps/argocd/argocd/default/helmfile.yaml"
+  ARGO_HELMFILE_FILE: "{{.KUBERNETES_DIR}}/apps/argocd/argocd/helmfile.yaml"
 
 tasks:
 
