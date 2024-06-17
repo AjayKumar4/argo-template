@@ -8,5 +8,7 @@ helmDefaults:
 
 helmfiles:
   - path: ./default/helmfile.yaml
+    secrets:
+      - values.sops.yaml
 
 
