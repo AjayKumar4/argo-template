@@ -94,7 +94,7 @@ repoServer:
     - name: SOPS_AGE_KEY_FILE
       value: /age-secret-keys/key.txt
     - name: PATH
-      value: "/custom-tools:$(PATH)"
+      value: "/custom-tools:${PATH}"
     - name: HELM_PLUGINS
       value: "/custom-tools/.helm/data/plugins"
   volumes:
