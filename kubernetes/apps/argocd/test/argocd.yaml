@@ -8,7 +8,7 @@ spec:
   project: home-kubernetes
   source:
     chart: argo-cd
-    repoURL: https://argoproj.github.io/argo-helm
+    repoURL: oci://ghcr.io/argoproj/argo-helm
     targetRevision: 7.1.3
     helm:
       releaseName: argocd
