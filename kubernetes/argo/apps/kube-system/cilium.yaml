@@ -50,7 +50,3 @@ spec:
       jsonPointers:
         - /data/ca.crt
         - /data/ca.key
-    - kind: '*'
-      jqPathExpressions:
-        - .spec.template.spec.initContainers[].resources
-        - .spec.template.spec.containers[].resources
