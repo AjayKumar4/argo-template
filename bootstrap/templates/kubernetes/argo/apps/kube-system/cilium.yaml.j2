@@ -48,3 +48,11 @@ spec:
       jsonPointers:
         - /data/ca.crt
         - /data/ca.key
+    - kind: Secret
+      name: cilium-ca
+      jsonPointers:
+        - /data/ca.crt
+        - /data/ca.key
+    - kind: '*'
+      jqPathExpressions:
+        - .spec.template.spec.securityContext.appArmorProfile
