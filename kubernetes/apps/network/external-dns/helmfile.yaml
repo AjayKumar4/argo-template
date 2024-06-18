@@ -6,14 +6,14 @@ helmDefaults:
   force: true
   reuseValues: true
 
+repositories:
+  - name: external-dns
+    url: https://kubernetes-sigs.github.io/external-dns
+
 environments:
   default:
     secrets:
       - values.sops.yaml
-
-repositories:
-  - name: external-dns
-    url: https://kubernetes-sigs.github.io/external-dns
 
 releases:
   - name: external-dns
