@@ -50,3 +50,8 @@ spec:
       jsonPointers:
         - /data/ca.crt
         - /data/ca.key
+    - group: apps
+      kind: Deployment
+      jqPathExpressions:
+        - .spec.template.spec.initContainers[].resources
+        - .spec.template.spec.containers[].resources

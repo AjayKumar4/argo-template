@@ -34,6 +34,3 @@ spec:
       jqPathExpressions:
         - .spec.template.spec.initContainers[].resources
         - .spec.template.spec.containers[].resources
-      jsonPointers:
-        - /spec/template/spec/initContainers/=~/resources
-        - /spec/template/spec/containers/=~/resources
