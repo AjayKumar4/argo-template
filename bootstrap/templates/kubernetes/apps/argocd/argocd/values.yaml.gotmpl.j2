@@ -8,9 +8,11 @@ configs:
   cm:
     statusbadge.enabled: true
     kustomize.buildOptions: '--enable-helm --enable-alpha-plugins --enable-exec'
-    resource.customizations.ignoreResourceUpdates.all: |
+      resource.customizations.ignoreDifferences.all: |
+      managedFieldsManagers:
+        - kube-controller-manager
       jsonPointers:
-        - /metadata/resourceVersion
+        - /spec/replicas
       jqPathExpressions:
         - .spec.template.spec.initContainers[].resources
         - .spec.template.spec.containers[].resources
