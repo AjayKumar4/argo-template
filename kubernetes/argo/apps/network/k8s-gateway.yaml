@@ -8,7 +8,7 @@ spec:
   project: home-kubernetes
   source:
     path: kubernetes/apps/network/k8s-gateway
-    repoURL: "https://github.com/AjayKumar4/argo-template.git"
+    repoURL: "https://github.com/ajaykumar4/argo-template.git"
     targetRevision: "master"
   destination:
     name: in-cluster

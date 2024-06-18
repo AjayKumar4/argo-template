@@ -1,0 +1,31 @@
+---
+helmDefaults:
+  wait: true
+  waitForJobs: true
+  timeout: 600
+  force: true
+
+repositories:
+  - name: jetstack
+    url: https://charts.jetstack.io
+
+environments:
+  default:
+    secrets:
+      - values.sops.yaml
+
+releases:
+  - name: cert-manager
+    namespace: cert-manager
+    chart: jetstack/cert-manager
+    version: 1.15.0
+    values:
+      - values.yaml
+  - name: certificates
+    namespace: cert-manager
+    chart: .
+    version: 1.0.0
+    secrets:
+      - values.sops.yaml
+    needs:
+      - cert-manager/cert-manager

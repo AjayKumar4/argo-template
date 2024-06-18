@@ -7,7 +7,7 @@ metadata:
 spec:
   project: home-kubernetes
   source:
-    repoURL: "https://github.com/AjayKumar4/argo-template.git"
+    repoURL: "https://github.com/ajaykumar4/argo-template.git"
     path: kubernetes/argo/repositories
     targetRevision: "master"
     directory:
