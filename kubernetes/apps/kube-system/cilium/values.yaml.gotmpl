@@ -98,3 +98,11 @@ dashboards:
   enabled: true
   annotations:
     grafana_folder: Cilium
+annotations:
+  container.apparmor.security.beta.kubernetes.io/apply-sysctl-overwrites: unconfined
+  container.apparmor.security.beta.kubernetes.io/cilium-agent: unconfined
+  container.apparmor.security.beta.kubernetes.io/clean-cilium-state: unconfined
+  container.apparmor.security.beta.kubernetes.io/config: unconfined
+  container.apparmor.security.beta.kubernetes.io/install-cni-binaries: unconfined
+  container.apparmor.security.beta.kubernetes.io/mount-bpf-fs: unconfined
+  container.apparmor.security.beta.kubernetes.io/mount-cgroup: unconfined
