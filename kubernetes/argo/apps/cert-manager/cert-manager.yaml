@@ -29,8 +29,7 @@ spec:
       kind: Application
       jsonPointers:
         - /spec/syncPolicy
-    - group: apps
-      kind: Deployment
+    - kind: '*'
       jqPathExpressions:
         - .spec.template.spec.initContainers[].resources
         - .spec.template.spec.containers[].resources
