@@ -8,7 +8,7 @@ configs:
   cm:
     statusbadge.enabled: true
     kustomize.buildOptions: '--enable-helm --enable-alpha-plugins --enable-exec'
-      resource.customizations.ignoreDifferences.all: |
+    resource.customizations.ignoreDifferences.all: |
       managedFieldsManagers:
         - kube-controller-manager
       jsonPointers:
