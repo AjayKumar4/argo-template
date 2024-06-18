@@ -31,3 +31,6 @@ spec:
       kind: Application
       jsonPointers:
         - /spec/syncPolicy
+    - kind: Deployment
+      jsonPointers:
+        - /spec/template/spec/initContainers/=~/resources
