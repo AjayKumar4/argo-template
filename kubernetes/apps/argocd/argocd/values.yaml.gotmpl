@@ -16,6 +16,8 @@ configs:
       jqPathExpressions:
         - .spec.template.spec.initContainers[].resources
         - .spec.template.spec.containers[].resources
+        - .spec.ports[].nodePort
+        - .spec.ports[].targetPort
     resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
       jqPathExpressions:
         - '.webhooks[]?.clientConfig.caBundle'
