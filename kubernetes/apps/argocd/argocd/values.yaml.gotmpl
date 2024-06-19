@@ -88,18 +88,18 @@ repoServer:
     env:
     - name: SOPS_AGE_KEY_FILE
       # Multiple keys can be separated by space
-      value: /age-secret-keys/key.txt
+      value: /helm-secrets-private-keys/key.txt
     volumeMounts:
     - mountPath: /var/run/argocd
       name: var-files
     - mountPath: /home/argocd/cmp-server/plugins
       name: plugins
-    - mountPath: /age-secret-keys/
-      name: age-secret-keys
+    - mountPath: /helm-secrets-private-keys/
+      name: helm-secrets-private-keys
   volumes:
-  - name: age-secret-keys
+  - name: helm-secrets-private-keys
     secret:
-      secretName: age-secret-keys
+      secretName: helm-secrets-private-keys
   metrics:
     enabled: true
     serviceMonitor: *service-monitor
