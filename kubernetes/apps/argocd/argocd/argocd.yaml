@@ -12,7 +12,7 @@ spec:
     targetRevision: "master"
     helm:
       valueFiles:
-        - 'secrets://values.sops.yamltas'
+        - 'secrets://secrets.sops.yaml'
   destination:
     name: in-cluster
     namespace: argocd
