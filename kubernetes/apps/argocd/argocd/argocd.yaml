@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+spec:
+  project: home-kubernetes
+  source:
+    path: kubernetes/apps/argocd/argocd
+    repoURL: "https://github.com/ajaykumar4/argo-template.git"
+    targetRevision: "master"
+    helm:
+      releaseName: argocd
+      valueFiles:
+        - secrets://values.sops.yaml'
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=true
