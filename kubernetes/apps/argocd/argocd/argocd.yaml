@@ -14,6 +14,7 @@ spec:
       releaseName: argocd
       valueFiles:
         - secrets://values.sops.yaml
+        - secrets://override-values.sops.yaml
   destination:
     name: in-cluster
     namespace: argocd

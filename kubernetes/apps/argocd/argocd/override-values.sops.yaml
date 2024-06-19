@@ -1,0 +1,35 @@
+server:
+    certificate:
+        enabled: true
+        secretName: argocd-server-tls
+        domain: argocd.ajaykumar.ie
+        issuer:
+            group: cert-manager.io
+            kind: ClusterIssuer
+            name: letsencrypt-staging
+    ingress:
+        enabled: true
+        ingressClassName: external
+        annotations:
+            external-dns.alpha.kubernetes.io/target: external.ajaykumar.ie
+        hostname: argocd.ajaykumar.ie
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB5ZmJDcXJIRkFTTlRQUndM
+            d1Z0dW82RmlBSm5GWk9JZUVTVXlodElVWHhnCld5UGVvUHUvVUJPUFA0TTR2NHpa
+            bW5ncDVCdGNjVHNsSS9CL3NBNm9DSGMKLS0tIGxSK0U1cTUvcVAwbmg2Q3EyMVR3
+            dGp0SkZQNFJIem5GTGQwNTN3WFp4WmMKopq2WBt4CbHrAuCKrbc4nUU+0q5rt+dI
+            58pzxGbJjQ4D11fgFcO2DSp01sYhDKSnproBlEFnQ6xIMvwU8+hmIg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-19T18:48:13Z"
+    mac: ENC[AES256_GCM,data:keWmD3lyLeLW1UwXmlrW1nieqNhnoCNqVFpTE01ZGr1/Pj/oeWxpH6MCEHIXabVmGF6uIo3zkH0uGe0qzGK+8jRlkqYguCf3fWn8GsKIB4CjRAphfbMmRLhOz0ocr5oyQfXswG/YeyJMwsGN3Ownsag2pgo1B39MyQaEMXKviDU=,iv:DFw9caM+aX5ThjyqcqltRcrUXL4+Hn/el6SJ6UM3ZFo=,tag:Zq8aRAD7Jw52FIUc7XDiwQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.8.1
