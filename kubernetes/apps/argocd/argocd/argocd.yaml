@@ -10,9 +10,6 @@ spec:
     path: kubernetes/apps/argocd/argocd/setup
     repoURL: "https://github.com/ajaykumar4/argo-template.git"
     targetRevision: "master"
-    helm:
-      valueFiles:
-        - 'secrets://secrets.sops.yaml'
   destination:
     name: in-cluster
     namespace: argocd

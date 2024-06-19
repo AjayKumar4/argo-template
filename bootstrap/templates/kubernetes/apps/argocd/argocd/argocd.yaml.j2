@@ -10,9 +10,6 @@ spec:
     path: kubernetes/apps/argocd/argocd/setup
     repoURL: "#{ bootstrap_github_address }#"
     targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
-    helm:
-      valueFiles:
-        - 'secrets://secrets.sops.yaml'
   destination:
     name: in-cluster
     namespace: argocd
