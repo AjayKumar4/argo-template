@@ -8,7 +8,7 @@ spec:
   project: home-kubernetes
   source:
     repoURL: "https://github.com/ajaykumar4/argo-template.git"
-    path: kubernetes/argo/apps
+    path: kubernetes/apps
     targetRevision: "master"
     directory:
       recurse: true
