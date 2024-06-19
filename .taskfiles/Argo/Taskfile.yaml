@@ -17,7 +17,7 @@ tasks:
       - helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.0 || true
       - helm secrets upgrade --install --kubeconfig {{.KUBECONFIG_FILE}} argocd oci://ghcr.io/argoproj/argo-helm/argo-cd --values {{.KUBERNETES_DIR}}/apps/argocd/argocd/values.sops.yaml --namespace argocd
       - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo/projects/templates
-      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/apps/argocd/argocd/argocd.yaml
+      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo
     preconditions:
       - msg: Missing kubeconfig
         sh: test -f {{.KUBECONFIG_FILE}}
