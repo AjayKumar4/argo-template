@@ -17,7 +17,7 @@ tasks:
       - helm dependency update {{.KUBERNETES_DIR}}/apps/argocd/argocd/setup
       - helm upgrade --install --kubeconfig {{.KUBECONFIG_FILE}} argocd {{.KUBERNETES_DIR}}/apps/argocd/argocd/setup -n argocd
       - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/argo/projects/templates
-      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/apps/argocd/argocd
+      - kubectl apply --kubeconfig {{.KUBECONFIG_FILE}} --server-side --filename {{.KUBERNETES_DIR}}/apps/argocd/argocd/argocd.yaml
     preconditions:
       - msg: Missing kubeconfig
         sh: test -f {{.KUBECONFIG_FILE}}
