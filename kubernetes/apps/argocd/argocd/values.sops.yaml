@@ -44,6 +44,20 @@ server:
     allowAnyNamespace: true
     config:
         helm.valuesFileSchemes: secrets+gpg-import, secrets+gpg-import-kubernetes, secrets+age-import, secrets+age-import-kubernetes, secrets,secrets+literal, https
+    certificate:
+        enabled: true
+        secretName: argocd-server-tls
+        domain: argocd.ajaykumar.ie
+        issuer:
+            group: cert-manager.io
+            kind: ClusterIssuer
+            name: letsencrypt-staging
+    ingress:
+        enabled: true
+        ingressClassName: external
+        annotations:
+            external-dns.alpha.kubernetes.io/target: external.ajaykumar.ie
+        hostname: argocd.ajaykumar.ie
     metrics:
         enabled: true
         serviceMonitor:
@@ -150,14 +164,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAwYzhzRllqMEN5K2lrTjl2
-            dlRWZjM5UjdEZVRJQi9MNWhyMG5NZTJoeldFCnFxTGh5R2Y0djJRRm9IeUJmc29t
-            YWdPb0pVQi9scEJjbWJuek9YTnB3YmsKLS0tIG4wNWowQlpXK09lZldpQWIxN1JH
-            cGo4WHhGQUdNZGVyYTBBQjNURmgzQ3cKgCvv5HHuqa/0C9Tn7J830eXUwZU2XGin
-            br6QQHmGXP4PgJTZ3sOEcWEAWX9+d+4Qde1e0RvxaFb+PaQSQHktbQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAzOEN5YSs3UmRoRE5PczN0
+            cUluRGRzN2RaQjl2OWx2bjdJbEFpM2luSGxVCjJyckkzOXhRZzBxNzFtc0V6eDBw
+            RTFqa3I0dk1kL1MrNW5YRFVILzZsUnMKLS0tIEVoaTcrenoyaVVoa1pSRGJsZmc3
+            eHpTeUhsbTNyNGVSY3owS3JYZGtJNlEKlHeB5NAhDpGlwgamZfMWCDbSBshPO95Y
+            GR2T8HQEN7VQX9bjAEhEy3CRLoatK/VZ6YqVq1+3P60pn8qYzd93Aw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-19T18:52:20Z"
-    mac: ENC[AES256_GCM,data:Nd8Ot/r6rFJ6N4yDxTBl6JNP2gPP3xh9HHqmOILbbOLG5nE5aXDQNF7ct7/ev7dCORfUd4qSNg9IvL//YCE+oLAY4mlJ+Z2Va0kMBgHAX1cc1pRsijy41Z+cjn8yws+BjkoXV5Vhtnsl5Qk5gFbpeyUOkUI8WyJlqujwbP2v7Y4=,iv:3E4h/Fv/dLXi5zVUl7n2SSQdkXH/LIujSDk0NjMK8RQ=,tag:MJuLSZzDW/axHk5UKCjd6Q==,type:str]
+    lastmodified: "2024-06-19T19:19:34Z"
+    mac: ENC[AES256_GCM,data:ZaU7P5YSnXLZzXNY3cXaXojPtQOu+WqlFXlXqs2gTiVVAqgVXs17aCgoe8/owY17cjRk3O7sfftseTlc7BTt76sTdC1tWquoVkozu5q+f+oZjmJoVQ/Sr0JVje3YusvR8Uc5K6zzN3/WEnpvyaIdnRA0v/9Vlm+/si40OyiOcJM=,iv:Np+BgsOFe6ZSdx8wuxeNDDlwZZa2MZKy8t+5oESdrEk=,tag:FFO0pSGSp2DSXzA6XO/Fyw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1
