@@ -12,7 +12,7 @@ spec:
     targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
     helm:
       valueFiles:
-        - 'secret://values.sops.yamltas'
+        - 'secrets://values.sops.yamltas'
   destination:
     name: in-cluster
     namespace: argocd
