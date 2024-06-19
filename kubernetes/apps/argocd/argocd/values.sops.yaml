@@ -1,80 +1,160 @@
-domain: argocd.ajaykumar.ie
-argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
-githubSecret: bd77b8ded03b9fdc259013f221d5c244
-ingress_domain: external.ajaykumar.ie
-issuer_name: letsencrypt-staging
-argo-cd:
-    crds:
-        install: true
-    global:
+crds:
+    install: true
+global:
+    domain: argocd.ajaykumar.ie
+configs:
+    params:
+        server.insecure: true
+    cm:
+        statusbadge.enabled: true
+        resource.exclusions: |
+            - apiGroups:
+                - cilium.io
+              kinds:
+                - CiliumIdentity
+              clusters:
+                - "*"
+    secret:
+        argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
+        githubSecret: bd77b8ded03b9fdc259013f221d5c244
+controller:
+    metrics:
+        enabled: true
+        applicationLabels:
+            enabled: true
+        serviceMonitor:
+            enabled: true
+            additionalLabels:
+                release: kube-prometheus-stack
+dex:
+    metrics:
+        enabled: true
+        serviceMonitor:
+            enabled: true
+            additionalLabels:
+                release: kube-prometheus-stack
+redis:
+    metrics:
+        enabled: true
+        serviceMonitor:
+            enabled: true
+            additionalLabels:
+                release: kube-prometheus-stack
+server:
+    allowAnyNamespace: true
+    config:
+        helm.valuesFileSchemes: secrets+gpg-import, secrets+gpg-import-kubernetes, secrets+age-import, secrets+age-import-kubernetes, secrets,secrets+literal, https
+    certificate:
+        enabled: true
+        secretName: argocd-server-tls
         domain: argocd.ajaykumar.ie
-    configs:
-        params:
-            server.insecure: true
-        cm:
-            statusbadge.enabled: true
-            resource.exclusions: |
-                - apiGroups:
-                    - cilium.io
-                  kinds:
-                    - CiliumIdentity
-                  clusters:
-                    - "*"
-        secret:
-            argocdServerAdminPassword: $2a$10$VS18cczTtbUep4iBCs0FdORY9tWiBZ/ew4m62ciotMBWrWeyC.JNO
-            githubSecret: bd77b8ded03b9fdc259013f221d5c244
-    controller:
-        metrics:
+        issuer:
+            group: cert-manager.io
+            kind: ClusterIssuer
+            name: letsencrypt-staging
+    ingress:
+        enabled: true
+        ingressClassName: external
+        annotations:
+            external-dns.alpha.kubernetes.io/target: external.ajaykumar.ie
+        hostname: argocd.ajaykumar.ie
+    metrics:
+        enabled: true
+        serviceMonitor:
             enabled: true
-            applicationLabels:
-                enabled: true
-            serviceMonitor:
-                enabled: true
-                additionalLabels:
-                    release: kube-prometheus-stack
-    dex:
-        metrics:
+            additionalLabels:
+                release: kube-prometheus-stack
+notifications:
+    metrics:
+        enabled: true
+        serviceMonitor:
             enabled: true
-            serviceMonitor:
-                enabled: true
-                additionalLabels:
-                    release: kube-prometheus-stack
-    redis:
-        metrics:
-            enabled: true
-            serviceMonitor:
-                enabled: true
-                additionalLabels:
-                    release: kube-prometheus-stack
-    server:
-        allowAnyNamespace: true
-        certificate:
-            enabled: true
-            secretName: argocd-server-tls
-            domain: argocd.ajaykumar.ie
-            issuer:
-                group: cert-manager.io
-                kind: ClusterIssuer
-                name: letsencrypt-staging
-        ingress:
-            enabled: true
-            ingressClassName: external
-            annotations:
-                external-dns.alpha.kubernetes.io/target: external.ajaykumar.ie
-            hostname: argocd.ajaykumar.ie
-        metrics:
-            enabled: true
-            serviceMonitor:
-                enabled: true
-                additionalLabels:
-                    release: kube-prometheus-stack
-    notifications:
-        metrics:
-            enabled: true
-            serviceMonitor:
-                enabled: true
-                additionalLabels:
-                    release: kube-prometheus-stack
+            additionalLabels:
+                release: kube-prometheus-stack
+repoServer:
+    serviceAccount:
+        create: true
+        name: argocd-repo-server
+    rbac:
+        - apiGroups:
+            - ""
+          resources:
+            - secrets
+          verbs:
+            - get
+    env:
+        - name: HELM_PLUGINS
+          value: /custom-tools/helm-plugins/
+        - name: HELM_SECRETS_CURL_PATH
+          value: /custom-tools/curl
+        - name: HELM_SECRETS_SOPS_PATH
+          value: /custom-tools/sops
+        - name: HELM_SECRETS_VALS_PATH
+          value: /custom-tools/vals
+        - name: HELM_SECRETS_KUBECTL_PATH
+          value: /custom-tools/kubectl
+        - name: HELM_SECRETS_BACKEND
+          value: sops
+        # https://github.com/jkroepke/helm-secrets/wiki/Security-in-shared-environments
+        - name: HELM_SECRETS_VALUES_ALLOW_SYMLINKS
+          value: "false"
+        - name: HELM_SECRETS_VALUES_ALLOW_ABSOLUTE_PATH
+          value: "true"
+        - name: HELM_SECRETS_VALUES_ALLOW_PATH_TRAVERSAL
+          value: "false"
+        - name: HELM_SECRETS_WRAPPER_ENABLED
+          value: "true"
+        - name: HELM_SECRETS_DECRYPT_SECRETS_IN_TMP_DIR
+          value: "true"
+        - name: HELM_SECRETS_HELM_PATH
+          value: /usr/local/bin/helm
+        # For age
+        - name: SOPS_AGE_KEY_FILE
+          value: /helm-secrets-private-keys/key.txt
+    volumes:
+        - name: custom-tools
+          emptyDir: {}
+        # kubectl create secret generic helm-secrets-private-keys --from-file=key.asc=assets/gpg/private2.gpg
+        - name: helm-secrets-private-keys
+          secret:
+            secretName: helm-secrets-private-keys
+    volumeMounts:
+        - mountPath: /custom-tools
+          name: custom-tools
+        - mountPath: /usr/local/sbin/helm
+          subPath: helm
+          name: custom-tools
+        - mountPath: /helm-secrets-private-keys/
+          name: helm-secrets-private-keys
+    initContainers:
+        - name: download-tools
+          image: alpine:latest
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -ec
+          env:
+            - name: HELM_SECRETS_VERSION
+              value: 4.6.0
+            - name: KUBECTL_VERSION
+              value: 1.30.1
+            - name: VALS_VERSION
+              value: 0.37.1
+            - name: SOPS_VERSION
+              value: 3.8.1
+          args:
+            - |
+              mkdir -p /custom-tools/helm-plugins
+              wget -qO- https://github.com/jkroepke/helm-secrets/releases/download/v${HELM_SECRETS_VERSION}/helm-secrets.tar.gz | tar -C /custom-tools/helm-plugins -xzf-;
+              wget -qO /custom-tools/curl https://github.com/moparisthebest/static-curl/releases/latest/download/curl-amd64
+              wget -qO /custom-tools/sops https://github.com/getsops/sops/releases/download/v${SOPS_VERSION}/sops-v${SOPS_VERSION}.linux.amd64
+              wget -qO /custom-tools/kubectl https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+              wget -qO- https://github.com/helmfile/vals/releases/download/v${VALS_VERSION}/vals_${VALS_VERSION}_linux_amd64.tar.gz | tar -xzf- -C /custom-tools/ vals;
+              cp /custom-tools/helm-plugins/helm-secrets/scripts/wrapper/helm.sh /custom-tools/helm
+              chmod +x /custom-tools/*
+          volumeMounts:
+            - mountPath: /custom-tools
+              name: custom-tools
 sops:
     kms: []
     gcp_kms: []
@@ -84,14 +164,14 @@ sops:
         - recipient: age1kh9qxg0nplvlncvld27lg3h4f3epdsr32vuxswtxn95fyhj04ufsuq9cl6
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBHd2pTSzBUN2VYb0h3OEdh
-            VFg1aEw0UU1JcFM2bXBuekdySzFUbTk5Y21RCmlkTy9hK3V4YTlzSk9kNWZQUWsz
-            UzVKQmkxUUxpZU1BdUY3L3ZSSmcxWFkKLS0tIFNYT3Q0SnZKWlB6WkVKUWdBdVJO
-            ZUQ1cHJyMXYxb2hWc3hYeDgyV25UVzgKaRn4Ns13/qKOl2ZWg28pDGbIzvPrOYtU
-            ShW7VZAFFdl/s6LXah2iGZenzbknEB9SW5UXq3rX/Tk+ozEB4+FyIQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBwcnRGWGNhZlhMRkQ1MnR1
+            WWxncW5tNWRGOHhaTkg5QTNLdnRoUHVyanpZCk9PcUxNcDU4WSs2RkJoOHJxRDFP
+            NmUyWlhlU2ZoaXV4ZWtydDkxSi9qV00KLS0tIEhmQ3pCN0x3YmxVRUdLY3RweEpy
+            Wm5VMzgza25wQW5uMHVXMXFCWnJJTVkKc4maFSn4XBU2mwKa5GFl3MNij6u4A0Vw
+            2aYx82CYSrffWRBlAyiYhZH0FGbm8u44i/fSo73T+AZzEzdGtKJDkQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-19T17:19:01Z"
-    mac: ENC[AES256_GCM,data:r3reuQxIusFfFQ1ciJuj2QFxMEu57s9g+Pnl8SqR9H7UpQ5PO0WatX//v3yI7e/g0SkGPDLzYm4jy7tM/U1dGJBIkiQybnJ0mRNIvKvZi6tBsgjQVDVAh4BSJo7EL/pdDSs3EdVO7f/jEyAQeZQ+3SCl4bTUfUVhd99/01IjUlk=,iv:hqfhMrWLgyfXUxnAgrtsPHxXv+bXboJf+YUO1XcW/0A=,tag:3nkJ98ODoT+B5tkG0dM5CA==,type:str]
+    lastmodified: "2024-06-19T17:55:51Z"
+    mac: ENC[AES256_GCM,data:kBL2mlIg33uZbV0ng/FuKyXCWQ5iRYgZkN5JZIW82L8pjj8pMaDxsCm6QNYfi3w0g4HC+oWcwK2uN12jEB77ljO2SM+X0csMsyXNN1pDdc+W9tM6tzQ4KuwKNqpoq0tvDR95yt72pwIyC234cBe/oA4BdXKfs8fNLvAqDQxB54Y=,iv:SJNA6cPQ/VMHxNxRp4MgmToQ1za69tFtV/CMPCFb0iA=,tag:HxhAqmqNVZ8Ri7HSXG3FYA==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.8.1

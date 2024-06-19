@@ -7,16 +7,16 @@ metadata:
 spec:
   project: home-kubernetes
   source:
-    chart: argo-cd
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 7.1.3
+    chart: cert-manager
+    repoURL: https://charts.jetstack.io
+    targetRevision: 1.15.0
     helm:
-      releaseName: argocd
+      releaseName: cert-manager
       valueFiles:
-        - secrets://secrets.sops.yaml
+        - values.yaml
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: cert-manager
   syncPolicy:
     automated:
       allowEmpty: true

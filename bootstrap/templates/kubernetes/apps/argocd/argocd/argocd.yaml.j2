@@ -7,9 +7,13 @@ metadata:
 spec:
   project: home-kubernetes
   source:
-    path: kubernetes/apps/argocd/argocd/setup
-    repoURL: "#{ bootstrap_github_address }#"
-    targetRevision: "#{ bootstrap_github_branch|default('main', true) }#"
+    chart: argo-cd
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 7.1.3
+    helm:
+      releaseName: argocd
+      valueFiles:
+        - secrets://values.sops.yaml
   destination:
     name: in-cluster
     namespace: argocd
@@ -22,8 +26,3 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
       - RespectIgnoreDifferences=true
-  ignoreDifferences:
-    - group: argoproj.io
-      kind: Application
-      jsonPointers:
-        - /spec/syncPolicy
